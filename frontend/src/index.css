@@ -1,0 +1,177 @@
+body {
+  background: url(https://i.imgur.com/j4gaJfd.png) 0px 10% #18354f;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.carrousel-component {
+  text-align: center;
+  display: inline-flex;
+  padding: 20px 0px;
+  cursor: pointer;
+}
+
+.portada-ima {
+  width: 51%;
+}
+
+.portada-ima img {
+  width: 125%;
+  transform: rotate(35deg);
+  margin-top: -52px;
+}
+
+.el-texto {
+  font-size: 10px;
+  margin-top: 0px;
+  text-transform: uppercase;
+}
+
+.add-cart-slider {
+  background: linear-gradient(to right, #7dc648, #74d2a9);
+  margin: auto;
+  padding: 5px;
+  color: white;
+  border-radius: 4px;
+  font-size: 11px;
+  margin-top: 10px;
+  width: 32%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header {
+  margin: 0px;
+  display: inline-flex;
+  width: 100%;
+  border-bottom: 1px solid #3d4055;
+  font-weight: lighter;
+text-transform: uppercase;
+font-size: 14px;
+font-family: Montserrat;
+  padding: 13px 0px;
+}
+
+
+.menu {
+  padding: 20px;
+    text-align: right;
+  width: 60%;
+}
+
+.menu ul {
+  margin: 0px;
+  display: inline-flex;
+  padding: 0px;
+}
+
+.menu li {
+  margin-left: 25px;
+  list-style: none;
+  color: white;
+}
+
+.carrito, .agregar {
+  width: 9%;
+  padding: 20px 0px;
+  text-align: right;
+  color: white;
+}
+
+
+.home-flex {
+  display: flex;
+  width: 100%;
+  margin-top: 39px;
+}
+
+.title-descripcion {
+  color: white;
+  font-size: 49px;
+  font-weight: bold;
+  margin-top: 1%;
+  text-align: right;
+  width: 27%;
+  text-transform: uppercase;
+}
+
+.title-descripcion span {
+  font-size: 40px;
+  color: #e0b83e;
+  font-weight: bolder;
+}
+
+.title-carrito {
+  margin-top: 12%;
+  margin-left: -5%;
+}
+
+.title-home {
+  font-size: 24px;
+  font-weight: bold;
+  color: #cece2f;
+  text-transform: uppercase;
+}
+
+.precio-home {
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+}
+
+.button-add {
+  padding: 10px 17px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #7dc648, #74d2a9);
+  cursor: pointer;
+}
+
+.portada-imagen {
+  height: 320px;
+  background-repeat: no-repeat;
+  width: 50%;
+  text-align: center;
+  background-position: 0px center;
+  background-size: 85%;
+  transform: rotate(20deg);
+}
+
+.slider {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.slider-home {
+  background: white;
+  display: inline-flex;
+  margin-right: 10px;
+  width: 18%;
+  border-radius: 7px;
+  border-left: 5px solid #607de8;
+}
+
+.container-tienda {
+  background: white;
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  height: 500px;
+  padding: 15px;
+  border-radius: 5px;
+}
