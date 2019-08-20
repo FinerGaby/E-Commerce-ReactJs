@@ -84,7 +84,15 @@ font-family: Montserrat;
   text-align: right;
   color: white;
 }
-
+.carrito-sub {
+  position: absolute;
+  background: white;
+  padding: 20px;
+  color: black;
+  margin-left: -5%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
 
 .home-flex {
   display: flex;

@@ -11,11 +11,28 @@ const FetchProvider = (props) => {
   const [cart, setCart] = useState([]);
 
   let handleCart;
-  handleCart = (id) => { 
-    const filterCart = data.filter(e => id === e.id)
-    const juntar = cart.concat(filterCart)
-    setCart(juntar)
-    console.log(cart)
+  handleCart = (id) => {
+        
+    // como funciona esto :thiking:
+    // Primero sabemos que el estado de cart viene un array vacio entonces hago un find
+    // sabemos que cuando hago el find y el array esta vacio es undefined
+    // entonces en la validacion sabemos que el estado es undefinend lo que lo guarda
+    // FORMATO DEL LOOP --- sabemos que ahora cart tiene un array en el carrito con una id
+    // entonces agrego otro producto 
+    // sabemos que ahora me va a llegar una id para que en find la busque por la id
+    // Si encontro el array con la misma id sabemos que no es undefinend entonces no se va a guardar
+    // entonces agrego otro producto este no tiene la misma id que se encuentra en el estado entonces es undefinend
+    // ejecuto para que se guarde
+    const find = cart.find(e => id === e.id);
+    if (find === undefined) {
+      const filterCart = data.filter(e => id === e.id)
+      const juntar = cart.concat(filterCart)
+      setCart(juntar)
+      console.log(cart)
+    } else {
+      return
+    }
+    
     //setCart(...cart, filterCart);
     
   }
