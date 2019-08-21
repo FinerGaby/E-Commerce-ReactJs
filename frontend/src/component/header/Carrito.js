@@ -19,13 +19,13 @@ function Carrito()  {
             {(value) => { 
 
            //accedo a los datos del context
-           const { cart } = value;
+           const { cart, handleCartDelete} = value;
 
            let MyComponent
            if(cart.length === 0) {
             MyComponent = <span>no item</span>
            }  else {
-            var precioTotal = cart.reduce(function(prev, cur) {
+            const precioTotal = cart.reduce((prev, cur) => {
                              return prev + cur.precio;
                             }, 0);            
             MyComponent =
@@ -33,7 +33,8 @@ function Carrito()  {
             {cart.map( (e, i) => {
                 return (
                     <div key={e.id}>
-                        {e.title} - ${e.precio}<br />
+                        {e.title} - ${e.precio}
+                        <span onClick={() => handleCartDelete(e.id)}>Quitar</span><br />
                     </div>
                 )}
                 )}

@@ -16,7 +16,7 @@ function App() {
         <MainHeader />
         <Switch >
         <Route exact path="/" component={ContainerMain}/>
-        <Route path="/tienda" component={Tienda}/>
+        <Route exact path="/tienda" component={Tienda}/>
         </Switch>
         </CartProvider>
         </FetchProvider>

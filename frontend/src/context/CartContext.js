@@ -26,14 +26,24 @@ const CartProvider = (props) => {
       setCart(resultFilter)
     } 
     return
-    
   }
+
+  let handleCartDelete
+  handleCartDelete = (id) => {
+     
+    const filterDelete = cart.filter(e => id !== e.id);
+    setCart(filterDelete);
+
+  }
+ 
+
     return (
 
       <CartContext.Provider
         value={{
             cart: cart,
-            handleCart: handleCart
+            handleCart: handleCart,
+            handleCartDelete: handleCartDelete
         }}
       >
        {props.children}
