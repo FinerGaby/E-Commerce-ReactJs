@@ -5,17 +5,20 @@ import ContainerMain from './component/pages/home/ContainerMain';
 import Tienda from './component/pages/tienda/Tienda';
 
 import FetchProvider from './context/FetchContext';
+import CartProvider from './context/CartContext';
 
 
 function App() {
   return (
     <Router>
     <FetchProvider>
+    <CartProvider>
         <MainHeader />
-        <Switch>
+        <Switch >
         <Route exact path="/" component={ContainerMain}/>
         <Route path="/tienda" component={Tienda}/>
         </Switch>
+        </CartProvider>
         </FetchProvider>
     </Router>
   );

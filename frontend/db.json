@@ -9,10 +9,10 @@
     ],
 
     "productos": [
-        {"id": 1, "title": "Nike Fire Force", "precio": "$250", "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false},
-        {"id": 2, "title": "Nike Aqua Splender", "precio": "$150", "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false},
-        {"id": 3, "title": "Nike Black Force", "precio": "$100", "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": true},
-        {"id": 4, "title": "Nike Pink Premium", "precio": "$500", "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false},
-        {"id": 5, "title": "Nike Green Premium", "precio": "$400", "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false}
+        {"id": 1, "title": "Nike Fire Force", "precio": 250, "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false},
+        {"id": 2, "title": "Nike Aqua Splender", "precio": 150, "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false},
+        {"id": 3, "title": "Nike Black Force", "precio": 100, "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": true},
+        {"id": 4, "title": "Nike Pink Premium", "precio": 500, "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false},
+        {"id": 5, "title": "Nike Green Premium", "precio": 400, "descripcion": "Esplendidas Zapatillas", "imagen": ["23", "imagen2", "imagen3", "imagen4"], "color": ["blanco", "negro", "rosa"], "talle": ["40", "35", "38", "37"], "fav": false}
     ]
 }

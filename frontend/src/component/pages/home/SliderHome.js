@@ -14,8 +14,8 @@ function SliderHome({data, handleSlider, handleCart}) {
                                 <div className="portada-ima"><img src={(`/img/${e.imagen[0]}.png`)} alt={`img/${e.imagen[0]}.png`} /></div>
                                 <div className="el-texto">
                                     {e.title}<br />
-                                    <strong>{e.precio}</strong><br />
-                                    <div onClick={() => handleCart(e.id)} className="add-cart-slider">add</div>
+                                    <strong>${e.precio}</strong><br />
+                                    <div onClick={() => handleCart(e.id, data)} className="add-cart-slider">add</div>
                                 </div>
                             </div>
                         </article>

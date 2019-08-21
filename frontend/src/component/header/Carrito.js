@@ -1,61 +1,61 @@
 import React, { useState } from 'react';
-import { FetchConsumer } from '../../context/FetchContext';
+import { CartConsumer } from '../../context/CartContext';
 
 
 function Carrito()  {
 
-    const [menuDespegable, setMenuDespegable] = useState(false);
+    const [menuHidden, setMenuHidden] = useState(false);
 
     let handleMenu
-    handleMenu = () => {
-        if(!menuDespegable) {
-        setMenuDespegable(true)
-    } else {
-        setMenuDespegable(false)
-    }}
+        handleMenu = () => {
+            if(!menuHidden) {
+                setMenuHidden(true)
+            } else {
+                setMenuHidden(false)
+            }}
 
     return (
-        <FetchConsumer>
+        <CartConsumer>
             {(value) => { 
 
            //accedo a los datos del context
            const { cart } = value;
-           //console.log(cart)     
 
-           let ResultData
+           let MyComponent
            if(cart.length === 0) {
-               ResultData = <span>no item</span>
+            MyComponent = <span>no item</span>
            }  else {
-            ResultData =
+            var precioTotal = cart.reduce(function(prev, cur) {
+                             return prev + cur.precio;
+                            }, 0);            
+            MyComponent =
             <React.Fragment>
             {cart.map( (e, i) => {
-                //console.log(e.precio)
                 return (
                     <div key={e.id}>
-                        {e.title} - {e.precio}
+                        {e.title} - ${e.precio}<br />
                     </div>
                 )}
                 )}
+                Total: ${precioTotal}
              </React.Fragment>
            }
 
             return (
-                <React.Fragment>
-        <div onClick={() => handleMenu()} className="carrito">
-        Carrito <strong>{cart.length}</strong>
-        {menuDespegable ? 
-            <div className="carrito-sub">{ResultData}</div>
-         : null }
-        </div>
-        <div className="agregar">
-                agregar
-        </div>
-        </React.Fragment>
+            <React.Fragment>
+                <div onClick={() => handleMenu()} className="carrito">
+                    Carrito <strong>{cart.length}</strong>
+                {menuHidden ? 
+                    <div className="carrito-sub">{MyComponent}</div>
+                : null }
+                </div>
+                <div className="agregar">
+                     agregar
+                </div>
+            </React.Fragment>
             )}}
-        </FetchConsumer>
-
+        </CartConsumer>
     );
-   
 }
 
 export default Carrito
