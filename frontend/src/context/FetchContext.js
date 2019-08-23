@@ -8,6 +8,7 @@ const FetchProvider = (props) => {
 
   const [fav, setFav] = useState({});
   const [data, setData] = useState([]);
+  const [dataId, setDataId] = useState(false);
 
     useEffect(() => {
       const fetchData = async () => {
@@ -24,8 +25,14 @@ const FetchProvider = (props) => {
 
       }
     fetchData();  
-    }, []  );
+    }, []);
 
+    let fetchId
+    fetchId = async (id) => {
+      const res = await axios.get(`http://localhost:8080/productos/${id}`)
+      const dataRes = res.data
+      setDataId(res)
+    }
   
   
 
@@ -34,7 +41,9 @@ const FetchProvider = (props) => {
       <FetchContext.Provider
         value={{
             fav: fav,
-            data: data
+            data: data,
+            fetchId: fetchId,
+            dataId: dataId
         }}
       >
        {props.children}

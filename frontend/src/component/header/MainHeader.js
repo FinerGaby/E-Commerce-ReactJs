@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Carrito from './Carrito';
 
 function MainHeader() {
@@ -6,11 +7,11 @@ function MainHeader() {
         <header className="header">
             <nav className="menu">
                 <ul>
-                    <li>Home</li>
-                    <li>Tienda</li>
-                    <li className="logo">N I K E</li>
-                    <li>Empresa</li>
-                    <li>Contacto</li>
+                    <li><Link to={"/"}>Home</Link></li>
+                    <li><Link to={"/tienda"}>Tienda</Link></li>
+                    <li className="logo"><Link to={"/"}>NIKE</Link></li>
+                    <li><Link to={"/empresa"}>Empresa</Link></li>
+                    <li><Link to={"/contacto"}>Contacto</Link></li>
                 </ul>
             </nav>
         <Carrito />

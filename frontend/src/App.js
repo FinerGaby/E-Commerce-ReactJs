@@ -6,6 +6,7 @@ import Tienda from './component/pages/tienda/Tienda';
 
 import FetchProvider from './context/FetchContext';
 import CartProvider from './context/CartContext';
+import ProductoId from './component/pages/tienda/ProductoId';
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
         <Switch >
         <Route exact path="/" component={ContainerMain}/>
         <Route exact path="/tienda" component={Tienda}/>
+        <Route path="/tienda/:id" 
+      render={props => <ProductoId id={props.match.params.id} />} />
         </Switch>
         </CartProvider>
         </FetchProvider>

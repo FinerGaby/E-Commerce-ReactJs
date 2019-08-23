@@ -78,6 +78,11 @@ font-family: Montserrat;
   color: white;
 }
 
+.menu li a {
+  color: white;
+  text-decoration: none;
+}
+
 .carrito, .agregar {
   width: 9%;
   padding: 20px 0px;
@@ -92,6 +97,7 @@ font-family: Montserrat;
   margin-left: -5%;
   margin-top: 10px;
   border-radius: 5px;
+  border: 1px solid #d9d9d9;
 }
 
 .home-flex {
@@ -182,4 +188,57 @@ font-family: Montserrat;
   height: 500px;
   padding: 15px;
   border-radius: 5px;
+}
+
+
+.productos {
+  width: 98%;
+  display: flex;
+  margin: auto;
+}
+
+.productos-map {
+  margin: auto;
+  border: 1px solid #d9d9d9;
+  padding: 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #212122;
+}
+
+.imagen-productos {
+  width: 27vh;
+  background-size: cover;
+  height: 16vh;
+  opacity: 0.7;
+}
+
+.button-add-tienda {
+  background: #18354f;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50px;
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  text-transform: none;
+}
+
+.search-producto {
+  padding: 8px 20px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  width: 50%;
+  border: 1px solid #d9d9d9;
+}
+
+.buscador-productos span {
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #18354f;
 }
