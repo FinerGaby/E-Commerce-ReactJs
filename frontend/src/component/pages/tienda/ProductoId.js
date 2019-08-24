@@ -1,34 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FetchConsumer } from '../../../context/FetchContext';
 
 
 const ProductoId = (props) => {
 
+    const [dataId, setDataId] = useState(false);
 
     return (
         <FetchConsumer>
             {(value) => {
                 
                 //accedo a los datos del estado
-                const { fetchId, dataId } = value;
+                const { data } = value;
 
-                if(dataId === false) {
-                    fetchId(props.id);
-                } 
-
-                let MyComponent
-                if (dataId.data === undefined) {
-                    console.log("cargando")
-                } else {
-                    const { title } = dataId.data
-                    
-                    MyComponent =
-                    <div>{title}</div>
-
+                if (!dataId) {
+                    //Parseo a number porque props.id viene en formato string y no me dejaba realizar el filtrado
+                    //console.log(typeof props.id)
+                    const parseoId = parseInt(props.id);
+                    const filter = data.filter(e => e.id === parseoId);
+                    setDataId(filter[0]);
                 }
 
-    
+                let MyComponent
+                if (dataId === undefined) {
+                    MyComponent = <div>Cargando</div>
+                } else {
+                    const { title, precio, descripcion, imagen, color, talle, id } = dataId;
+                    if (imagen === undefined) { return }
+                    MyComponent =
+                    <div className="container-tienda">
+                        <div className="flex-box">
+                            <div className="imagenes-muestra">
+                                {console.log(imagen)}
+                                { imagen.map( e => <div key={e}>{e}</div> ) }
+                            </div>
+                        </div>
+                    </div>
 
+                }
 
 
                 return(

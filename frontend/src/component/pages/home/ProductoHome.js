@@ -30,7 +30,7 @@ const ProductoHome = () => {
             handleSlider = (e) => {
                 setActiveindex(e)
             }
-
+            
     
 
            let MyComponent

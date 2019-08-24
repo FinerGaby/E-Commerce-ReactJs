@@ -19,7 +19,8 @@ function App() {
         <Route exact path="/" component={ContainerMain}/>
         <Route exact path="/tienda" component={Tienda}/>
         <Route path="/tienda/:id" 
-      render={props => <ProductoId id={props.match.params.id} />} />
+                render={props => 
+                <ProductoId id={props.match.params.id} />} />
         </Switch>
         </CartProvider>
         </FetchProvider>

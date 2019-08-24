@@ -22,6 +22,7 @@ const CartProvider = (props) => {
     const findData = cart.find(e => id === e.id);
     if (findData === undefined) {
       const filterCart = data.filter(e => id === e.id)
+      
       const resultFilter = cart.concat(filterCart)
       setCart(resultFilter)
     } 
