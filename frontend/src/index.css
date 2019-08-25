@@ -184,7 +184,6 @@ font-family: Montserrat;
   width: 90%;
   margin: auto;
   margin-top: 20px;
-  text-align: center;
   height: 500px;
   padding: 15px;
   border-radius: 5px;
@@ -241,4 +240,44 @@ font-family: Montserrat;
   font-weight: bold;
   letter-spacing: 1px;
   color: #18354f;
+}
+
+
+.flex-box {
+  display: inline-flex;
+  width: 100%;
+}
+.imagenes-muestra {
+  width: 45%;
+  text-align: center;
+}
+.info-producto {
+  width: 55%;
+}
+
+.titulo-producto {
+  font-weight: bold;
+  font-size: 42px;
+  text-transform: uppercase;
+}
+.descripcion-producto {
+  font-size: 15px;
+  font-weight: lighter;
+  color: #666666;
+}
+
+.imagenes-galeria-active {
+  background-size: 90%;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.imagenes-galeria {
+  border: 2px solid #dcdcdc;
+  background-size: 100%;
+  height: 100px;
+  width: 100%;
+  margin-right: 5px;
+  background-repeat: no-repeat;
 }

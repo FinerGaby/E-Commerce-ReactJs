@@ -31,13 +31,13 @@ function Tienda() {
                         {
                             data.map( (e, i) => {
                             const divStyle = {
-                             backgroundImage: `url('img/${e.imagen[0]}.png')`
+                             backgroundImage: `url('/img/${e.imagen[0]}.png')`
                              };
                                return (
                                   
                                     <div key={e.id} className="productos-map">
                                     <div style={divStyle} className="imagen-productos"></div><br />
-                                    <Link to={`tienda/${e.id}`}>{e.title}</Link><br />
+                                    <Link to={`/producto/${e.id}`}>{e.title}</Link><br />
                                     ${e.precio}
                                     <div onClick={() => handleCart(e.id, data)} className="button-add-tienda">Add Cart</div>
                                     </div>

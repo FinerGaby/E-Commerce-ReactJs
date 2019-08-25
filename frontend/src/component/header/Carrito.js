@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CartConsumer } from '../../context/CartContext';
 
 
@@ -33,12 +34,14 @@ function Carrito()  {
             {cart.map( (e, i) => {
                 return (
                     <div key={e.id}>
-                        {e.title} - ${e.precio}
+                    {e.title} - ${e.precio}
                         <span onClick={() => handleCartDelete(e.id)}>Quitar</span><br />
                     </div>
                 )}
                 )}
-                Total: ${precioTotal}
+                Total: ${precioTotal}<br />
+                <Link to={"/checking"}>Checkout page</Link>
+
              </React.Fragment>
            }
 
