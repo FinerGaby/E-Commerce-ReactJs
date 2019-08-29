@@ -10,23 +10,28 @@ const FetchProvider = (props) => {
   const [data, setData] = useState([]);
 
     useEffect(() => {
-      const fetchData = async () => {
-        const res = await axios.get(`http://localhost:8080/productos`);
-        console.log(res);
-        const fetchingArray = res.data;
-
-        //Este es para cuando el objecto este en favoritos -- no se si lo usare
-        const filterFetching = fetchingArray.filter(e => true === e.fav);
-        setFav(filterFetching[0])
-
-        //guardo los datos en el estado "data"
-        setData(fetchingArray)
-
-      }
-    fetchData();  
+         let fetching = async () => { fetchData()  }   
+      fetching();  
     }, []);
 
+    let fetchData = async () => {
+      const res = await axios.get(`http://localhost:8080/productos`);
+      console.log(res);
+      const fetchingArray = res.data;
   
+      //Este es para cuando el objecto este en favoritos -- no se si lo usare
+      const filterFetching = fetchingArray.filter(e => true === e.fav);
+      setFav(filterFetching[0])
+  
+      //guardo los datos en el estado "data"
+      setData(fetchingArray)
+    }
+  
+    let handleSubmit
+    handleSubmit = async (value) => {
+       await axios.post(`http://localhost:8080/productos`, value)
+       fetchData();
+    }
   
 
     return (
@@ -34,7 +39,8 @@ const FetchProvider = (props) => {
       <FetchContext.Provider
         value={{
             fav: fav,
-            data: data
+            data: data,
+            handleSubmit: handleSubmit
         }}
       >
        {props.children}
