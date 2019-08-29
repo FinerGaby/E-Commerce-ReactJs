@@ -8,30 +8,59 @@ const AgregarProducto = () => {
     const [formValues, setFormValues] = useState({
         id: '',
         title: '',
-        precio: [''],
+        precio: '',
         descripcion: '',
-        imagen: '',
-        color: '',
-        talle: ''
+        imagen: [''],
+        color: [''],
+        talle: ['']
     })
 
 
     let handleAddInput
-    handleAddInput = () => {
-        setFormValues({ 
-            ...formValues,
-            precio: [ ...formValues.precio, "" ]
-        })
+    handleAddInput = (estado) => {
+        switch (estado) {
+            case 'imagen':  setFormValues({ 
+                ...formValues,
+                imagen: [ ...formValues.imagen, "" ],
+            })
+            break;
+            case 'color': setFormValues({ 
+                ...formValues,
+                color: [...formValues.color, ""]
+            })
+            break;
+            default:
+                break;
+        }
     }
+    
+
+
 
     let handleChangeArray
-    handleChangeArray = id => e => {
-        formValues.precio[id] = e.target.value;
-        setFormValues({ 
-            ...formValues,
-            [e.target.name]: e.target.value,
-            precio: formValues.precio})
+    handleChangeArray = (id, estado) => e => {
+       switch (estado) {
+           case 'imagen': formValues.imagen[id] = e.target.value;
+                setFormValues({ 
+                    ...formValues,
+                    [e.target.name]: e.target.value,
+                    imagen: formValues.imagen
+                })
+               break;
+            case 'color': 
+            formValues.color[id] = e.target.value;
+            setFormValues({ 
+                ...formValues,
+                [e.target.name]: e.target.value,
+                color: formValues.color
+            })
+            break;
+           default:
+               break;
+       }
     }
+
+    
 
 
     let handleChange
@@ -61,11 +90,14 @@ const AgregarProducto = () => {
                     <label id="idtest" htmlFor="idtest">id user:</label>
                     <input type="text" name="id" onChange={handleChange} required />
 
-                    test
-                    { formValues.precio.map((precios, index) => 
-                      <input type ="text" key={index}  name="precio"  onChange={handleChangeArray(index)} required />
+                    <label id="idtest" htmlFor="idtest">precio:</label>
+                    <input type="text" name="precio" onChange={handleChange} required />
+
+                    <label id="idtest" htmlFor="idtest">imagen:</label>
+                    { formValues.imagen.map((imagen, index) => 
+                      <input type ="text" key={index}  name="imagen"  onChange={handleChangeArray(index, 'imagen')} required />
                     )}
-                    <button type="button" onClick={handleAddInput} >  Agregar otro precio </button>
+                    <button type="button" onClick={() => handleAddInput('imagen')} >  Agregar otra imagen </button>
                     <label id="userid" htmlFor="avatar">title:</label>
                     <input type="text" name="title" onChange={handleChange} required />
 
@@ -73,11 +105,12 @@ const AgregarProducto = () => {
                     <label id="userid" htmlFor="userid">descripcion:</label>
                     <input type="text" name="descripcion" onChange={handleChange} required />
 
-                    <label id="userid" htmlFor="userid">imagen:</label>
-                    <input type="text" name="imagen" onChange={handleChange} required />
 
-                    <label id="userid" htmlFor="userid">color:</label>
-                    <input type="text" name="color" onChange={handleChange} required />
+                    <label id="idtest" htmlFor="idtest">color:</label>
+                    { formValues.color.map((color, index) => 
+                      <input type="text" key={index}  name="color"  onChange={handleChangeArray(index, 'color')} required />
+                    )}
+                    <button type="button" onClick={() => handleAddInput('color')} >  Agregar otro color </button>
 
                     <label id="userid" htmlFor="userid">talle:</label>
                     <input type="text" name="talle" onChange={handleChange} required />
