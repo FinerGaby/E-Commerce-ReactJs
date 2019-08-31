@@ -25,7 +25,7 @@ const Galeria = (props) => {
                 };
                  return(
                          <div onClick={() => setActiveIndex(index)} 
-                             key={galeria} 
+                             key={index} 
                              style={divStyle} 
                              className="imagenes-galeria">
                          </div>

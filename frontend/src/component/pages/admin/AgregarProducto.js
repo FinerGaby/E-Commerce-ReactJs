@@ -29,6 +29,11 @@ const AgregarProducto = () => {
                 color: [...formValues.color, ""]
             })
             break;
+            case 'talle': setFormValues({ 
+                ...formValues,
+                talle: [...formValues.talle, ""]
+            })
+            break;
             default:
                 break;
         }
@@ -40,21 +45,30 @@ const AgregarProducto = () => {
     let handleChangeArray
     handleChangeArray = (id, estado) => e => {
        switch (estado) {
-           case 'imagen': formValues.imagen[id] = e.target.value;
-                setFormValues({ 
-                    ...formValues,
-                    [e.target.name]: e.target.value,
-                    imagen: formValues.imagen
-                })
-               break;
+           case 'imagen': 
+                    formValues.imagen[id] = e.target.value;
+                            setFormValues({ 
+                                ...formValues,
+                                [e.target.name]: e.target.value,
+                                imagen: formValues.imagen
+                            })
+                        break;
             case 'color': 
-            formValues.color[id] = e.target.value;
-            setFormValues({ 
-                ...formValues,
-                [e.target.name]: e.target.value,
-                color: formValues.color
-            })
-            break;
+                    formValues.color[id] = e.target.value;
+                    setFormValues({ 
+                        ...formValues,
+                        [e.target.name]: e.target.value,
+                        color: formValues.color
+                    })
+                    break;
+            case 'talle': 
+                    formValues.talle[id] = e.target.value;
+                    setFormValues({ 
+                        ...formValues,
+                        [e.target.name]: e.target.value,
+                        talle: formValues.talle
+                    })
+                    break;
            default:
                break;
        }
@@ -103,7 +117,7 @@ const AgregarProducto = () => {
 
                   
                     <label id="userid" htmlFor="userid">descripcion:</label>
-                    <input type="text" name="descripcion" onChange={handleChange} required />
+                    <textarea name="descripcion" onChange={handleChange} required />
 
 
                     <label id="idtest" htmlFor="idtest">color:</label>
@@ -112,8 +126,13 @@ const AgregarProducto = () => {
                     )}
                     <button type="button" onClick={() => handleAddInput('color')} >  Agregar otro color </button>
 
+
                     <label id="userid" htmlFor="userid">talle:</label>
-                    <input type="text" name="talle" onChange={handleChange} required />
+                    { formValues.talle.map((talles, index) => 
+                      <input type="text" key={index}  name="talle"  onChange={handleChangeArray(index, 'talle')} required />
+                    )}
+                    <button type="button" onClick={() => handleAddInput('talle')} >  Agregar otro talle </button>
+
 
                     <input type="submit" value="Crear" />
             </form>

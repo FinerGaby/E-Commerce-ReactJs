@@ -32,6 +32,12 @@ const FetchProvider = (props) => {
        await axios.post(`http://localhost:8080/productos`, value)
        fetchData();
     }
+
+    let handleDelete
+    handleDelete = async (id) => {
+      await axios.delete(`http://localhost:8080/productos/${id}`) 
+      fetchData();
+    }
   
 
     return (
@@ -40,7 +46,8 @@ const FetchProvider = (props) => {
         value={{
             fav: fav,
             data: data,
-            handleSubmit: handleSubmit
+            handleSubmit: handleSubmit,
+            handleDelete: handleDelete
         }}
       >
        {props.children}

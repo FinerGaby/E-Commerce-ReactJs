@@ -281,3 +281,12 @@ font-family: Montserrat;
   margin-right: 5px;
   background-repeat: no-repeat;
 }
+
+.delete-producto {
+  background: #d27171;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}

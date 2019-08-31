@@ -113,30 +113,6 @@
   ],
   "productos": [
     {
-      "id": 1,
-      "title": "Nike Fire Force",
-      "precio": 250,
-      "descripcion": "Esplendidas Zapatillas",
-      "imagen": [
-        "23",
-        "25",
-        "23",
-        "23"
-      ],
-      "color": [
-        "blanco",
-        "negro",
-        "rosa"
-      ],
-      "talle": [
-        "40",
-        "35",
-        "38",
-        "37"
-      ],
-      "fav": false
-    },
-    {
       "id": 2,
       "title": "Nike Aqua Splender",
       "precio": 150,
