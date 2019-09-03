@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CartConsumer } from '../../context/CartContext';
 
 
+
 function Carrito()  {
 
     const [menuHidden, setMenuHidden] = useState(false);
@@ -54,7 +55,7 @@ function Carrito()  {
                 : null }
                 </div>
                 <div className="agregar">
-                     agregar
+                     <Link to={"/adminhome"}>Admin</Link>
                 </div>
             </React.Fragment>
             )}}

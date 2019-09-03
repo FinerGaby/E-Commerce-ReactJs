@@ -207,6 +207,21 @@
         "37"
       ],
       "fav": false
+    },
+    {
+      "id": 8,
+      "title": "Title",
+      "precio": "250",
+      "descripcion": "sdasdadsa",
+      "imagen": [
+        "imagen1"
+      ],
+      "color": [
+        "redre"
+      ],
+      "talle": [
+        "2505"
+      ]
     }
   ]
 }

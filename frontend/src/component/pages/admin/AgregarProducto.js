@@ -95,9 +95,11 @@ const AgregarProducto = () => {
             //accedo a el estado de cart
             const { handleSubmit } = value;
 
+            // FALTAN MUCHAS COSAS EN ESPECIAL FORMATO STRING Y NUMBER EN PRECIO PORQUE CUANDO SE CREAN VIENEN EN STRING
+
             return (
-                <div className="container-tienda">
-            <form  onSubmit={(e) => {
+                <React.Fragment>
+            <form className="form-add" onSubmit={(e) => {
                     e.preventDefault();
                     handleSubmit(formValues)
                 }}>
@@ -136,7 +138,7 @@ const AgregarProducto = () => {
 
                     <input type="submit" value="Crear" />
             </form>
-        </div>
+            </React.Fragment>
             )}}
           </FetchConsumer>
     )

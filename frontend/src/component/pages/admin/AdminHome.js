@@ -30,11 +30,11 @@ const AdminHome = () => {
                }
             
             return (
-              <div className="container-tienda">
+                    <React.Fragment>
                   Filtra por categoria
                   Estadisticas?
                   {MyComponent}
-                  </div>
+                  </React.Fragment>
             )}}
         </FetchConsumer>
     )
