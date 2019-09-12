@@ -8,6 +8,7 @@ const FetchProvider = (props) => {
 
   const [fav, setFav] = useState({});
   const [data, setData] = useState([]);
+  const [validationForm, setValidationForm] = useState(false)
 
     useEffect(() => {
          let fetching = async () => { fetchData()  }   
@@ -29,8 +30,35 @@ const FetchProvider = (props) => {
   
     let handleSubmit
     handleSubmit = async (value) => {
-       await axios.post(`http://localhost:8080/productos`, value)
-       fetchData();
+      const { title, imagen, precio, descripcion, color, talle, id, editar } = value
+
+      if(editar) {
+        const updateProducto = {
+          title,
+          imagen,
+          precio,
+          descripcion,
+          color,
+          talle
+        }
+        await axios.put(`http://localhost:8080/productos/${id}`, updateProducto) 
+        fetchData();
+
+      } else {
+        const addProducto = {
+          title,
+          imagen,
+          precio,
+          descripcion,
+          color,
+          talle,
+          id
+        }
+
+        await axios.post(`http://localhost:8080/productos`, addProducto)
+        fetchData();
+
+      }
     }
 
     let handleDelete

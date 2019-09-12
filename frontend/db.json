@@ -113,16 +113,15 @@
   ],
   "productos": [
     {
-      "id": 2,
-      "title": "Nike Aqua Splender",
-      "precio": 150,
-      "descripcion": "Esplendidas Zapatillas",
+      "title": "Nike Aqua Splender Editado",
       "imagen": [
         "23",
         "23",
         "23",
         "23"
       ],
+      "precio": 150,
+      "descripcion": "Esplendidas Zapatillas",
       "color": [
         "blanco",
         "negro",
@@ -134,7 +133,7 @@
         "38",
         "37"
       ],
-      "fav": false
+      "id": 2
     },
     {
       "id": 3,
@@ -209,19 +208,20 @@
       "fav": false
     },
     {
-      "id": 8,
-      "title": "Title",
-      "precio": "250",
-      "descripcion": "sdasdadsa",
+      "title": "producto 2",
       "imagen": [
-        "imagen1"
+        "asdasd",
+        "imagen random"
       ],
+      "precio": "producto 2",
+      "descripcion": "producto 2",
       "color": [
-        "redre"
+        "sadsad"
       ],
       "talle": [
-        "2505"
-      ]
+        "asd"
+      ],
+      "id": "700000222"
     }
   ]
 }

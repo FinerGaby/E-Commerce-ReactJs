@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FetchConsumer } from '../../../context/FetchContext';
+import SidebarAdmin from './SidebarAdmin';
 
 
 
-const AgregarProducto = () => {
+const AgregarProducto = (props) => {
 
     const [formValues, setFormValues] = useState({
         id: '',
@@ -12,8 +14,60 @@ const AgregarProducto = () => {
         descripcion: '',
         imagen: [''],
         color: [''],
-        talle: ['']
+        talle: [''],
+        editar: false
     })
+ 
+  
+       /*  let editedProduct = async () => {
+            const res = await axios.get('http://localhost:8080/productos/' + props.id);
+            const {data} = res
+            console.log(data)
+            const { title, imagen, precio, descripcion, color, talle } = data
+            setFormValues({
+              precio,
+              descripcion, 
+              color, 
+              talle, 
+              title: title,
+              imagen: imagen,
+              editar: true
+            })
+          }; */
+
+          useEffect(() => {
+              console.log(props.id)
+            if(props.id) {
+                   let editedProduct = async () => {
+                        const res = await axios.get(`http://localhost:8080/productos/${props.id}`);
+                        const {data} = res
+                        console.log(data)
+                        const { title, imagen, precio, descripcion, color, talle, id } = data
+                        setFormValues({
+                          id,
+                          precio,
+                          descripcion, 
+                          color, 
+                          talle, 
+                          title,
+                          imagen,
+                          editar: true
+                        })
+                      }
+                      editedProduct();
+            } else {
+                setFormValues({
+                    id: '',
+                    title: '',
+                    precio: '',
+                    descripcion: '',
+                    imagen: [''],
+                    color: [''],
+                    talle: [''],
+                    editar: false
+                  })
+            }
+          }, [props.id]);
 
 
     let handleAddInput
@@ -74,6 +128,35 @@ const AgregarProducto = () => {
        }
     }
 
+    let handleDeleteInput
+    handleDeleteInput = (id, estado) => {
+        let filtradoDelete
+        switch (estado) {
+            case 'imagen': 
+             filtradoDelete = formValues.imagen.filter((array, index) => index !== id)
+                        setFormValues({
+                            ...formValues,
+                            imagen: filtradoDelete
+                        })
+            break;
+            case 'color': 
+             filtradoDelete = formValues.color.filter((array, index) => index !== id)
+                        setFormValues({
+                            ...formValues,
+                            color: filtradoDelete
+                        })
+            break;
+            case 'talle': 
+            filtradoDelete = formValues.talle.filter((array, index) => index !== id)
+                        setFormValues({
+                            ...formValues,
+                            talle: filtradoDelete
+                        })
+            break;
+            default:
+                break;
+        }
+    }
     
 
 
@@ -95,49 +178,66 @@ const AgregarProducto = () => {
             //accedo a el estado de cart
             const { handleSubmit } = value;
 
+
             // FALTAN MUCHAS COSAS EN ESPECIAL FORMATO STRING Y NUMBER EN PRECIO PORQUE CUANDO SE CREAN VIENEN EN STRING
 
             return (
                 <React.Fragment>
+                <div className="container-tienda-flex">
+                <SidebarAdmin />
+             <div>      
             <form className="form-add" onSubmit={(e) => {
                     e.preventDefault();
                     handleSubmit(formValues)
+                    
                 }}>
                     <label id="idtest" htmlFor="idtest">id user:</label>
-                    <input type="text" name="id" onChange={handleChange} required />
+                    <input type="text" name="id" onChange={handleChange} required value={formValues.id} />
 
                     <label id="idtest" htmlFor="idtest">precio:</label>
-                    <input type="text" name="precio" onChange={handleChange} required />
+                    <input type="text" name="precio" onChange={handleChange} required value={formValues.precio}/>
 
                     <label id="idtest" htmlFor="idtest">imagen:</label>
                     { formValues.imagen.map((imagen, index) => 
-                      <input type ="text" key={index}  name="imagen"  onChange={handleChangeArray(index, 'imagen')} required />
+                      <React.Fragment key={index}>
+                      <input type ="text" key={index}  name="imagen"  onChange={handleChangeArray(index, 'imagen')} value={formValues.imagen[index]} required />
+                      {formValues.editar ? <h4 onClick={() => handleDeleteInput(index, 'imagen')} >Quitar</h4> : null }
+                      </React.Fragment>
                     )}
                     <button type="button" onClick={() => handleAddInput('imagen')} >  Agregar otra imagen </button>
                     <label id="userid" htmlFor="avatar">title:</label>
-                    <input type="text" name="title" onChange={handleChange} required />
+                    <input type="text" name="title" onChange={handleChange} value={formValues.title} required />
 
                   
                     <label id="userid" htmlFor="userid">descripcion:</label>
-                    <textarea name="descripcion" onChange={handleChange} required />
+                    <textarea name="descripcion" onChange={handleChange} value={formValues.descripcion} required />
 
 
                     <label id="idtest" htmlFor="idtest">color:</label>
                     { formValues.color.map((color, index) => 
-                      <input type="text" key={index}  name="color"  onChange={handleChangeArray(index, 'color')} required />
+                      <React.Fragment key={index}>
+                      <input type="text" key={index}  name="color"  onChange={handleChangeArray(index, 'color')} value={formValues.color[index]} required />
+                      {formValues.editar ? <h4 onClick={() => handleDeleteInput(index, 'color')} >Quitar</h4> : null }
+                      </React.Fragment>
+
                     )}
                     <button type="button" onClick={() => handleAddInput('color')} >  Agregar otro color </button>
 
 
                     <label id="userid" htmlFor="userid">talle:</label>
                     { formValues.talle.map((talles, index) => 
-                      <input type="text" key={index}  name="talle"  onChange={handleChangeArray(index, 'talle')} required />
+                       <React.Fragment key={index}>
+                      <input type="text" key={index}  name="talle"  onChange={handleChangeArray(index, 'talle')} value={formValues.talle[index]} required />
+                      {formValues.editar ? <h4 onClick={() => handleDeleteInput(index, 'talle')} >Quitar</h4> : null }
+                      </React.Fragment>
                     )}
                     <button type="button" onClick={() => handleAddInput('talle')} >  Agregar otro talle </button>
 
 
-                    <input type="submit" value="Crear" />
+                    {formValues.editar ? <input type="submit" value="Editar" /> : <input type="submit" value="Crear" />} 
             </form>
+            </div>
+            </div>
             </React.Fragment>
             )}}
           </FetchConsumer>

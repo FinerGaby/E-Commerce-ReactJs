@@ -11,7 +11,9 @@ import CheckCart from './component/pages/tienda/CheckCart';
 
 import FetchProvider from './context/FetchContext';
 import CartProvider from './context/CartContext';
-import SidebarAdmin from './component/pages/admin/SidebarAdmin';
+import AdminHome from './component/pages/admin/AdminHome';
+import AgregarProducto from './component/pages/admin/AgregarProducto';
+
 
 
 function App() {
@@ -24,10 +26,16 @@ function App() {
         <Route exact path="/" component={ContainerMain}/>
         <Route exact path="/tienda" component={Tienda}/>
         <Route exact path="/checking" component={CheckCart}/>
-        <Route exact path="/adminhome" component={SidebarAdmin}/>
         <Route path="/producto/:id" 
                 render={props => 
                 <ProductoId id={props.match.params.id} />} />
+
+        <Route exact path="/adminhome" component={AdminHome}/>
+        <Route exact path="/agregar" component={AgregarProducto}/>
+        <Route exact path="/editarproducto/:id" 
+                render={props => 
+                        <AgregarProducto id={props.match.params.id} />} />
+
         </Switch>
         </CartProvider>
         </FetchProvider>

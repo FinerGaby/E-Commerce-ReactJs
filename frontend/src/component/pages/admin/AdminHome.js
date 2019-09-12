@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FetchConsumer } from '../../../context/FetchContext';
+import SidebarAdmin from './SidebarAdmin';
 
 
 const AdminHome = () => {
@@ -15,26 +17,30 @@ const AdminHome = () => {
                    MyComponent = <div>no hay datos</div>
                } else {
                    MyComponent =
-                   <React.Fragment>
+                   <div>
+                   Filtra por categoria
+                  Estadisticas?
                        {
                            data.map( (productos, index) => {
                                 
                                 return (
                                     <div key={productos.id}>
                                     {productos.title} - {productos.precio} - 
-                                    <div onClick={() => handleDelete(productos.id)} className="delete-producto">Quitar</div>
+                                    <Link to={`/editarproducto/${productos.id}`}>Editar</Link>
+                                    <div onClic={() => handleDelete(productos.id)} className="delete-producto">Quitar onClick</div>
                                     </div>
                                 )})
                            }
-                    </React.Fragment>
+                    </div>
                }
             
             return (
-                    <React.Fragment>
-                  Filtra por categoria
-                  Estadisticas?
-                  {MyComponent}
-                  </React.Fragment>
+                <React.Fragment>
+                    <div className="container-tienda-flex">
+                        <SidebarAdmin />
+                        {MyComponent}
+                    </div>
+                </React.Fragment>
             )}}
         </FetchConsumer>
     )
