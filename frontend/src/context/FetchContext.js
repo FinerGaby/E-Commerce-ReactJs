@@ -8,7 +8,6 @@ const FetchProvider = (props) => {
 
   const [fav, setFav] = useState({});
   const [data, setData] = useState([]);
-  const [validationForm, setValidationForm] = useState(false)
 
     useEffect(() => {
          let fetching = async () => { fetchData()  }   
@@ -30,7 +29,8 @@ const FetchProvider = (props) => {
   
     let handleSubmit
     handleSubmit = async (value) => {
-      const { title, imagen, precio, descripcion, color, talle, id, editar } = value
+
+      const { title, imagen, precio, descripcion, color, talle, id, editar } = value;
 
       if(editar) {
         const updateProducto = {
@@ -72,10 +72,10 @@ const FetchProvider = (props) => {
 
       <FetchContext.Provider
         value={{
-            fav: fav,
-            data: data,
-            handleSubmit: handleSubmit,
-            handleDelete: handleDelete
+            fav,
+            data,
+            handleSubmit,
+            handleDelete
         }}
       >
        {props.children}

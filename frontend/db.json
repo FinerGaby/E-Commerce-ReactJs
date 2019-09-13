@@ -222,6 +222,17 @@
         "asd"
       ],
       "id": "700000222"
+    },
+    {
+      "title": "asd",
+      "imagen": [
+        "asd"
+      ],
+      "precio": "asd",
+      "descripcion": "sad",
+      "color": [],
+      "talle": [],
+      "id": "sad"
     }
   ]
 }
