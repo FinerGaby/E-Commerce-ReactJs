@@ -13,6 +13,7 @@ import FetchProvider from './context/FetchContext';
 import CartProvider from './context/CartContext';
 import AdminHome from './component/pages/admin/AdminHome';
 import AgregarProducto from './component/pages/admin/AgregarProducto';
+import CategoriaAdd from './component/pages/admin/CategoriaAdd';
 
 
 
@@ -32,6 +33,7 @@ function App() {
 
         <Route exact path="/adminhome" component={AdminHome}/>
         <Route exact path="/agregar" component={AgregarProducto}/>
+        <Route exact path="/createcategory" component={CategoriaAdd}/>
         <Route exact path="/editarproducto/:id" 
                 render={props => 
                         <AgregarProducto id={props.match.params.id} />} />

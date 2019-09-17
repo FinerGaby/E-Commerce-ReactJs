@@ -50,13 +50,11 @@ function Carrito()  {
             <React.Fragment>
                 <div onClick={() => handleMenu()} className="carrito">
                     Carrito <strong>{cart.length}</strong>
-                {menuHidden ? 
+                    {menuHidden ? 
                     <div className="carrito-sub">{MyComponent}</div>
                 : null }
                 </div>
-                <div className="agregar">
-                     <Link to={"/adminhome"}>Admin</Link>
-                </div>
+        
             </React.Fragment>
             )}}
         </CartConsumer>

@@ -1,124 +1,18 @@
 {
-  "favoritos": [
+  "categoria": [
     {
-      "id": 1,
-      "title": "Nike Fire Force",
-      "descripcion": "Esplendidas Zapatillas",
-      "imagen": [
-        "imagen1",
-        "imagen2",
-        "imagen3",
-        "imagen4"
-      ],
-      "color": [
-        "blanco",
-        "negro",
-        "rosa"
-      ],
-      "talle": [
-        "40",
-        "35",
-        "38",
-        "37"
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Nike Aqua Splender",
-      "descripcion": "Esplendidas Zapatillas",
-      "imagen": [
-        "imagen1",
-        "imagen2",
-        "imagen3",
-        "imagen4"
-      ],
-      "color": [
-        "blanco",
-        "negro",
-        "rosa"
-      ],
-      "talle": [
-        "40",
-        "35",
-        "38",
-        "37"
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Nike Black Force",
-      "descripcion": "Esplendidas Zapatillas",
-      "imagen": [
-        "imagen1",
-        "imagen2",
-        "imagen3",
-        "imagen4"
-      ],
-      "color": [
-        "blanco",
-        "negro",
-        "rosa"
-      ],
-      "talle": [
-        "40",
-        "35",
-        "38",
-        "37"
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Nike Pink Premium",
-      "descripcion": "Esplendidas Zapatillas",
-      "imagen": [
-        "imagen1",
-        "imagen2",
-        "imagen3",
-        "imagen4"
-      ],
-      "color": [
-        "blanco",
-        "negro",
-        "rosa"
-      ],
-      "talle": [
-        "40",
-        "35",
-        "38",
-        "37"
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Nike Green Premium",
-      "descripcion": "Esplendidas Zapatillas",
-      "imagen": [
-        "imagen1",
-        "imagen2",
-        "imagen3",
-        "imagen4"
-      ],
-      "color": [
-        "blanco",
-        "negro",
-        "rosa"
-      ],
-      "talle": [
-        "40",
-        "35",
-        "38",
-        "37"
-      ]
+      "name": "test",
+      "id": "121221"
     }
   ],
   "productos": [
     {
       "title": "Nike Aqua Splender Editado",
       "imagen": [
-        "23",
-        "23",
-        "23",
-        "23"
+        "a2",
+        "a2",
+        "a3",
+        "a4"
       ],
       "precio": 150,
       "descripcion": "Esplendidas Zapatillas",
@@ -141,10 +35,10 @@
       "precio": 100,
       "descripcion": "Esplendidas Zapatillas",
       "imagen": [
-        "23",
-        "23",
-        "23",
-        "25"
+        "a1",
+        "a2",
+        "a3",
+        "a4"
       ],
       "color": [
         "blanco",
@@ -165,10 +59,10 @@
       "precio": 500,
       "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
       "imagen": [
-        "23",
-        "25",
-        "23",
-        "23"
+        "a1",
+        "a2",
+        "a3",
+        "a4"
       ],
       "color": [
         "blanco",
@@ -189,10 +83,10 @@
       "precio": 400,
       "descripcion": "Esplendidas Zapatillas",
       "imagen": [
-        "23",
-        "23",
-        "25",
-        "23"
+        "a2",
+        "a2",
+        "a3",
+        "a4"
       ],
       "color": [
         "blanco",
@@ -206,33 +100,6 @@
         "37"
       ],
       "fav": false
-    },
-    {
-      "title": "producto 2",
-      "imagen": [
-        "asdasd",
-        "imagen random"
-      ],
-      "precio": "producto 2",
-      "descripcion": "producto 2",
-      "color": [
-        "sadsad"
-      ],
-      "talle": [
-        "asd"
-      ],
-      "id": "700000222"
-    },
-    {
-      "title": "asd",
-      "imagen": [
-        "asd"
-      ],
-      "precio": "asd",
-      "descripcion": "sad",
-      "color": [],
-      "talle": [],
-      "id": "sad"
     }
   ]
 }

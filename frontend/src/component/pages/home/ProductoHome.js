@@ -7,7 +7,7 @@ import SliderHome from './SliderHome';
 
 const ProductoHome = () => {
 
-    const [activeindex, setActiveindex ] = useState(0)
+    const [activeindex, setActiveindex ] = useState(0);
 
     return (
         <CartConsumer>
@@ -30,6 +30,7 @@ const ProductoHome = () => {
             handleSlider = (e) => {
                 setActiveindex(e)
             }
+
             
     
 
@@ -48,6 +49,7 @@ const ProductoHome = () => {
                 <div style={divStyle} className="portada-imagen"></div>
                 <div className="title-carrito">
                     <div className="title-home">{dataSlider.title}</div>
+                    <div className="description-home">{dataSlider.descripcion}</div>
                     <div className="precio-home">${dataSlider.precio}</div>
                         <div onClick={() => handleCart(dataSlider.id, data)} className="button-add">Add Cart</div>
                     </div>
@@ -56,6 +58,7 @@ const ProductoHome = () => {
                     data={data}
                     handleSlider={handleSlider}
                     handleCart={handleCart}
+
                 />
                </React.Fragment>
            }

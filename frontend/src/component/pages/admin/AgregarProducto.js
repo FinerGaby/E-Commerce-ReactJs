@@ -158,7 +158,7 @@ const AgregarProducto = (props) => {
             //accedo a el estado de cart
             const { handleSubmit } = value;
 
-
+            // Boton checking add recibe index y luego uso reduce y concat
             // FALTAN MUCHAS COSAS EN ESPECIAL FORMATO STRING Y NUMBER EN PRECIO PORQUE CUANDO SE CREAN VIENEN EN STRING
 
             return (

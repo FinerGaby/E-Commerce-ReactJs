@@ -31,7 +31,7 @@ function Tienda() {
                         {
                             data.map( (e, i) => {
                             const divStyle = {
-                             backgroundImage: `url('/img/${e.imagen[0]}.png')`
+                             backgroundImage: `url('/img/${e.imagen[0]}')`
                              };
                                return (
                                   
