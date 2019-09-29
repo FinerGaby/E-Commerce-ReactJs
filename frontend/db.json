@@ -3,6 +3,10 @@
     {
       "name": "test",
       "id": "121221"
+    },
+    {
+      "name": "categoria2",
+      "id": "id1"
     }
   ],
   "productos": [
@@ -100,6 +104,31 @@
         "37"
       ],
       "fav": false
+    },
+    {
+      "title": "ads",
+      "imagen": [
+        "asd"
+      ],
+      "precio": "asddsa",
+      "descripcion": "asd",
+      "color": [
+        "sad"
+      ],
+      "categoria": [
+        {
+          "name": "test",
+          "id": "121221"
+        },
+        {
+          "name": "categoria2",
+          "id": "id1"
+        }
+      ],
+      "talle": [
+        "sda"
+      ],
+      "id": "asdsda"
     }
   ]
 }

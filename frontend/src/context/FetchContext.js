@@ -29,9 +29,10 @@ const FetchProvider = (props) => {
   
     let handleSubmit
     handleSubmit = async (value) => {
-
-      const { title, imagen, precio, descripcion, color, talle, id, editar } = value;
-
+      //verificar que reciba 1 categoria seleccionada
+      console.log(value)
+      const { title, imagen, precio, descripcion, color, talle, id, editar, categoria } = value;
+  
       if(editar) {
         const updateProducto = {
           title,
@@ -39,6 +40,7 @@ const FetchProvider = (props) => {
           precio,
           descripcion,
           color,
+          categoria,
           talle
         }
         await axios.put(`http://localhost:8080/productos/${id}`, updateProducto) 
@@ -51,6 +53,7 @@ const FetchProvider = (props) => {
           precio,
           descripcion,
           color,
+          categoria,
           talle,
           id
         }

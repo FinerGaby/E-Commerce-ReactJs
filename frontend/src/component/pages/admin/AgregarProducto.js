@@ -13,14 +13,19 @@ const AgregarProducto = (props) => {
         imagen: [''],
         color: [''],
         talle: [''],
+        categoria: [''],
         editar: false
     });
     const [validationForm, setValidationForm] = useState(false)
 
+    
+
           useEffect(() => {
             if(props.id) {
                    let editedProduct = async () => {
+                        const resCategoria = await axios.get(`http://localhost:8080/categoria`);
                         const res = await axios.get(`http://localhost:8080/productos/${props.id}`);
+                        console.log(resCategoria)
                         const {data} = res
                         console.log(data)
                         const { title, imagen, precio, descripcion, color, talle, id } = data
@@ -32,24 +37,31 @@ const AgregarProducto = (props) => {
                           talle, 
                           title,
                           imagen,
+                          categoria: [''],
                           editar: true
                         })
                       }
                       editedProduct();
             } else {
-                setFormValues({
-                    id: '',
-                    title: '',
-                    precio: '',
-                    descripcion: '',
-                    imagen: [''],
-                    color: [''],
-                    talle: [''],
-                    editar: false
-                  })
+                let resCategoria = async () => { 
+                    let categoriasGet = await axios.get(`http://localhost:8080/categoria`); 
+                    setFormValues({
+                        id: '',
+                        title: '',
+                        precio: '',
+                        descripcion: '',
+                        imagen: [''],
+                        color: [''],
+                        talle: [''],
+                        categoria: categoriasGet.data,
+                        editar: false
+                      })
+                }
+                resCategoria();
             }
           }, [props.id]);
 
+          console.log(formValues.categoria)
 
     let handleAddInput
     handleAddInput = (estado) => {
@@ -208,6 +220,14 @@ const AgregarProducto = (props) => {
                   
                     <label id="userid" htmlFor="userid">descripcion:</label>
                     <textarea name="descripcion" onChange={handleChange} value={formValues.descripcion} />
+
+                    
+                    <label id="idtest" htmlFor="idtest">categoria:</label>
+                    <select value={formValues.categoria} onChange={handleChange}>
+                        {formValues.categoria.map(cat =>
+                             <option key={cat.id} value={cat.id}>{cat.name}</option>
+                        )};
+                    </select>
 
 
                     <label id="idtest" htmlFor="idtest">color:</label>
