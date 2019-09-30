@@ -12,7 +12,7 @@ const SidebarAdmin = () => {
                 <ul>
                     <li><Link to={"/adminhome"}>Home</Link></li>
                     <li><Link to={"/agregar"}>Agregar</Link></li>
-                    <li>Agregar Categoria</li>
+                    <li><Link to={"/createcategory"}>Agregar Categoria</Link></li>
                 </ul>
             </div>
         </React.Fragment>

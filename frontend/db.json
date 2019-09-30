@@ -106,29 +106,20 @@
       "fav": false
     },
     {
-      "title": "ads",
+      "title": "asd",
       "imagen": [
-        "asd"
+        "ads"
       ],
-      "precio": "asddsa",
+      "precio": "asd",
       "descripcion": "asd",
       "color": [
-        "sad"
+        "asd"
       ],
-      "categoria": [
-        {
-          "name": "test",
-          "id": "121221"
-        },
-        {
-          "name": "categoria2",
-          "id": "id1"
-        }
-      ],
+      "categoria": "121221",
       "talle": [
-        "sda"
+        "asd"
       ],
-      "id": "asdsda"
+      "id": "asd"
     }
   ]
 }

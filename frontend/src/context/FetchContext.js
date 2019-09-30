@@ -29,8 +29,7 @@ const FetchProvider = (props) => {
   
     let handleSubmit
     handleSubmit = async (value) => {
-      //verificar que reciba 1 categoria seleccionada
-      console.log(value)
+      
       const { title, imagen, precio, descripcion, color, talle, id, editar, categoria } = value;
   
       if(editar) {
@@ -48,14 +47,14 @@ const FetchProvider = (props) => {
 
       } else {
         const addProducto = {
+          id,
           title,
           imagen,
           precio,
           descripcion,
           color,
-          categoria,
           talle,
-          id
+          categoria
         }
 
         await axios.post(`http://localhost:8080/productos`, addProducto)
