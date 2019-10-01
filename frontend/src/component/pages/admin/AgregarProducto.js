@@ -17,15 +17,11 @@ const AgregarProducto = (props) => {
         editar: false
     });
     const [validationForm, setValidationForm] = useState(false)
-    const [categoriasGet, setCategoriasGet] = useState([])
 
-    
 
           useEffect(() => {
             if(props.id) {
                    let editedProduct = async () => {
-                        const categoriasGet = await axios.get(`http://localhost:8080/categoria`);
-                        setCategoriasGet(categoriasGet.data)
                         const res = await axios.get(`http://localhost:8080/productos/${props.id}`);
                         const {data} = res
                         console.log(data)
@@ -44,9 +40,7 @@ const AgregarProducto = (props) => {
                       }
                       editedProduct();
             } else {
-                let resCategoria = async () => { 
-                    let categoriasGet = await axios.get(`http://localhost:8080/categoria`); 
-                    setCategoriasGet(categoriasGet.data)
+
                     setFormValues({
                         id: '',
                         title: '',
@@ -58,8 +52,6 @@ const AgregarProducto = (props) => {
                         categoria: '------',
                         editar: false
                       })
-                }
-                resCategoria();
             }
           }, [props.id]);
 
@@ -179,7 +171,7 @@ const AgregarProducto = (props) => {
             {(value) => { 
 
             //accedo a el estado de cart
-            const { handleSubmit } = value;
+            const { handleSubmit, categoriasGet } = value;
 
             // Boton checking add recibe index y luego uso reduce y concat
             // FALTAN MUCHAS COSAS EN ESPECIAL FORMATO STRING Y NUMBER EN PRECIO PORQUE CUANDO SE CREAN VIENEN EN STRING

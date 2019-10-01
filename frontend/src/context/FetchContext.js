@@ -8,6 +8,8 @@ const FetchProvider = (props) => {
 
   const [fav, setFav] = useState({});
   const [data, setData] = useState([]);
+  const [categoriasGet, setCategoriasGet] = useState([])
+
 
     useEffect(() => {
          let fetching = async () => { fetchData()  }   
@@ -15,6 +17,8 @@ const FetchProvider = (props) => {
     }, []);
 
     let fetchData = async () => {
+      const categoriasGet = await axios.get(`http://localhost:8080/categoria`);
+      setCategoriasGet(categoriasGet.data)
       const res = await axios.get(`http://localhost:8080/productos`);
       console.log(res);
       const fetchingArray = res.data;
@@ -76,6 +80,7 @@ const FetchProvider = (props) => {
         value={{
             fav,
             data,
+            categoriasGet,
             handleSubmit,
             handleDelete
         }}

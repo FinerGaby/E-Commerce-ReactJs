@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FetchConsumer } from '../../../context/FetchContext';
 import { CartConsumer } from '../../../context/CartContext';
+import SidebarCat from './SidebarCat';
 
 
 
-function Tienda() {
+function Tienda(props) {
+
+    console.log(props.id)
 
     return (
 
@@ -25,7 +28,32 @@ function Tienda() {
                 if( data.lenght === 0) {
                     MyComponent = <div>no datos</div>
                 } else {
-                    MyComponent =
+                    if( props.id ) {
+                        let filtradoCat;
+                        filtradoCat = data.filter(e => e.categoria === props.id);
+                        MyComponent = 
+                        <React.Fragment>
+                            <div className="productos">
+                            {
+                            filtradoCat.map( (e, i) => {
+                            const divStyle = {
+                             backgroundImage: `url('/img/${e.imagen[0]}')`
+                             };
+                               return (
+                                  
+                                    <div key={e.id} className="productos-map">
+                                    <div style={divStyle} className="imagen-productos"></div><br />
+                                    <Link to={`/producto/${e.id}`}>{e.title}</Link><br />
+                                    ${e.precio}
+                                    <div onClick={() => handleCart(e.id, data)} className="button-add-tienda">Add Cart</div>
+                                    </div>
+                                    
+                            )})
+                                }
+                            </div>
+                        </React.Fragment>
+                    } else  {
+                        MyComponent =
                     <React.Fragment>
                     <div className="productos">
                         {
@@ -47,15 +75,21 @@ function Tienda() {
                         }
                     </div>
                     </React.Fragment>
+                    }
                 }
             
             return (
                 <div className="container-tienda">
+                <div className="container-tienda-flex">
+                    <SidebarCat />
+                    <div>
                     <div className="buscador-productos">
                         <span>Busca el producto que quieras!</span><br />
                         <input type="search" name="search" className="search-producto" />
                     </div>
                      {MyComponent}
+                     </div>
+                     </div>
                 </div>
             )}}
           </FetchConsumer>

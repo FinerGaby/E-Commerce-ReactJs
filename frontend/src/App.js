@@ -31,6 +31,11 @@ function App() {
                 render={props => 
                 <ProductoId id={props.match.params.id} />} />
 
+        <Route exact path="/categoria/:id" 
+               render={props => 
+                        <Tienda id={props.match.params.id} />} />
+        />
+
         <Route exact path="/adminhome" component={AdminHome}/>
         <Route exact path="/agregar" component={AgregarProducto}/>
         <Route exact path="/createcategory" component={CategoriaAdd}/>
