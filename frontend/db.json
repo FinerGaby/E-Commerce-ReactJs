@@ -2,11 +2,11 @@
   "categoria": [
     {
       "name": "test",
-      "id": "121221"
+      "id": "2332"
     },
     {
-      "name": "categoria2",
-      "id": "id1"
+      "name": "cat1",
+      "id": "11111"
     }
   ],
   "productos": [
@@ -115,7 +115,7 @@
       "color": [
         "asd"
       ],
-      "categoria": "121221",
+      "categoria": "2332",
       "talle": [
         "asd"
       ],
