@@ -39,7 +39,7 @@
       "precio": 100,
       "descripcion": "Esplendidas Zapatillas",
       "imagen": [
-        "a1",
+        "a4",
         "a2",
         "a3",
         "a4"
@@ -63,7 +63,7 @@
       "precio": 500,
       "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
       "imagen": [
-        "a1",
+        "a5",
         "a2",
         "a3",
         "a4"
@@ -87,7 +87,7 @@
       "precio": 400,
       "descripcion": "Esplendidas Zapatillas",
       "imagen": [
-        "a2",
+        "a6",
         "a2",
         "a3",
         "a4"

@@ -39,14 +39,13 @@ const ProductoHome = () => {
                MyComponent = <div>no datos</div>
            } else {
             const divStyle = {
-                backgroundImage: `url('/img/${dataSlider.imagen[0]}.png')`
+                backgroundImage: `url('/img/${dataSlider.imagen[0]}.jpg')`
             };
                 MyComponent = 
                <React.Fragment>
-               <article className="home-flex">
+               <article style={divStyle} className="home-flex">
                 <div className="title-descripcion">Just do Shoes<br />
                      <span>Fire Nike</span></div>
-                <div style={divStyle} className="portada-imagen"></div>
                 <div className="title-carrito">
                     <div className="title-home">{dataSlider.title}</div>
                     <div className="description-home">{dataSlider.descripcion}</div>

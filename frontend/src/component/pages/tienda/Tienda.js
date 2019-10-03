@@ -37,7 +37,7 @@ function Tienda(props) {
                             {
                             filtradoCat.map( (e, i) => {
                             const divStyle = {
-                             backgroundImage: `url('/img/${e.imagen[0]}')`
+                             backgroundImage: `url('/img/${e.imagen[0]}.jpg')`
                              };
                                return (
                                   
@@ -59,7 +59,7 @@ function Tienda(props) {
                         {
                             data.map( (e, i) => {
                             const divStyle = {
-                             backgroundImage: `url('/img/${e.imagen[0]}')`
+                             backgroundImage: `url('/img/${e.imagen[0]}.jpg')`
                              };
                                return (
                                   
@@ -82,7 +82,7 @@ function Tienda(props) {
                 <div className="container-tienda">
                 <div className="container-tienda-flex">
                     <SidebarCat />
-                    <div>
+                    <div className="productos-tienda">
                     <div className="buscador-productos">
                         <span>Busca el producto que quieras!</span><br />
                         <input type="search" name="search" className="search-producto" />

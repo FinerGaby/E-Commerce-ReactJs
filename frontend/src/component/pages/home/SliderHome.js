@@ -6,12 +6,16 @@ function SliderHome({data, handleSlider, handleCart}) {
     return (
       
                 <section className="slider">
-                {data.map( (e, i) => 
+                {data.map( (e, i) => {
+                const divStyle = {
+                backgroundImage: `url('/img/${e.imagen[0]}.jpg')`  
+                }
+                return (
                         <article 
                         onClick={() => handleSlider(i)}
-                        key={e.id} className="slider-home">
+                        key={e.id}  style={divStyle} className="slider-home">
                             <div className="carrousel-component">
-                                <div className="portada-ima"><img src={(`/img/${e.imagen[0]}.png`)} alt={`/img/${e.imagen[0]}.png`} /></div>
+                                
                                 <div className="el-texto">
                                     {e.title}<br />
                                     <strong>${e.precio}</strong><br />
@@ -21,6 +25,8 @@ function SliderHome({data, handleSlider, handleCart}) {
                         </article>
       
                 )}
+                )
+                }
                 </section>
     )   
 }

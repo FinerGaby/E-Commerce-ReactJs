@@ -1,5 +1,9 @@
+
+
+
+
 body {
-  background: #f1f1f1;
+  background: #000;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -9,6 +13,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+
+.productos-tienda {
+  width: 100%;
 }
 
 .logo {
@@ -35,9 +45,12 @@ code {
 }
 
 .el-texto {
-  font-size: 10px;
-  margin-top: 0px;
+  font-size: 18px;
+  margin-top: 60px;
   text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
 }
 
 .add-cart-slider {
@@ -62,7 +75,7 @@ text-transform: uppercase;
 font-size: 12px;
 font-family: Montserrat;
   padding: 13px 0px;
-  background: white;
+  background: black;
 }
 
 .header a {
@@ -89,7 +102,7 @@ font-family: Montserrat;
 }
 
 .menu li a {
-  color: #888888;
+  color: white;
   text-decoration: none;
 }
 
@@ -118,14 +131,17 @@ font-family: Montserrat;
 .home-flex {
   display: flex;
   width: 100%;
-  margin-top: 39px;
+  margin-top: -81px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
 }
 
 .title-descripcion {
   color: #2d9786;
     font-size: 49px;
     font-weight: bold;
-    margin-top: 1%;
+    margin-top: 8%;
     text-align: right;
     width: 27%;
     text-transform: uppercase;
@@ -169,50 +185,40 @@ font-family: Montserrat;
   cursor: pointer;
 }
 
-.portada-imagen {
-  height: 320px;
-  background-repeat: no-repeat;
-  width: 50%;
-  text-align: center;
-  background-position: 0px center;
-  background-size: 73%;
-  transform: rotate(20deg);
-}
+
 
 .slider {
   width: 100%;
   text-align: center;
   background: #e9e9e9;
-  padding: 30px 0px;
-  border-top: 1px solid #d9d9d9;
+  padding: 0px 0px;
+  display: flex;
 }
 
 .slider-home {
   background: white;
-display: inline-flex;
-width: 23%;
-border-radius: 6px;
-border-left: 5px solid #9b9da6;
+width: 30%;
 margin: auto;
     margin-right: auto;
-margin-right: 10px;
+  background-size: cover;
+  height: 220px;
 }
 
 .container-tienda {
   background: white;
-  width: 90%;
+  width: 93%;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 1px;
   height: 500px;
-  padding: 15px;
+  padding: 1px;
   border-radius: 5px;
 }
 
 
 .productos {
-  width: 98%;
-  display: flex;
+  width: 100%;
   margin: auto;
+  display: flex;
 }
 
 .productos-map {
@@ -312,11 +318,11 @@ margin-right: 10px;
  
 .container-tienda-flex {
   background: white;
-  width: 90%;
+  width: 100%;
   margin: auto;
   margin-top: 20px;
   min-height: 500px;
-  padding: 15px;
+  padding: 1px;
   border-radius: 5px;
   display: flex;
 }
@@ -345,4 +351,36 @@ margin-right: 10px;
 .form-add input, .form-add label {
   display: block;
   width: 100%;
+}
+
+
+
+
+
+
+
+.sidebar-cat {
+  width: 190px;
+  padding: 5px 10px;
+}
+
+.sidebar-cat ul {
+  padding: 0px;
+  margin: auto;
+  list-style: none;
+}
+
+.sidebar-cat li {
+  font-weight: bold;
+  background: #142659;
+  margin-bottom: 3px;
+  padding: 10px 7px;
+  border-radius: 3px;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.sidebar-cat li a {
+  color: white;
+  text-decoration: none;
 }
