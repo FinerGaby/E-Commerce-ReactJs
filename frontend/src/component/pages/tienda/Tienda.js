@@ -8,8 +8,6 @@ import SidebarCat from './SidebarCat';
 
 function Tienda(props) {
 
-    console.log(props.id)
-
     return (
 
         <CartConsumer>
@@ -29,13 +27,11 @@ function Tienda(props) {
                     MyComponent = <div>no datos</div>
                 } else {
                     if( props.id ) {
-                        let filtradoCat;
-                        filtradoCat = data.filter(e => e.categoria === props.id);
                         MyComponent = 
                         <React.Fragment>
                             <div className="productos">
                             {
-                            filtradoCat.map( (e, i) => {
+                                data.filter(e => e.categoria === props.id).map( (e, i) => {
                             const divStyle = {
                              backgroundImage: `url('/img/${e.imagen[0]}.jpg')`
                              };

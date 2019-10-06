@@ -36,12 +36,12 @@ function Carrito()  {
                 return (
                     <div key={e.id}>
                     {e.title} - ${e.precio}
-                        <span onClick={() => handleCartDelete(e.id)}>Quitar</span><br />
+                        <span onClick={() => handleCartDelete(e.id)}><i className="material-icons">delete</i></span><br />
                     </div>
                 )}
                 )}
                 Total: ${precioTotal}<br />
-                <Link to={"/checking"}>Checkout page</Link>
+               <Link to={"/checking"}>Checkout page</Link>
 
              </React.Fragment>
            }
@@ -49,12 +49,12 @@ function Carrito()  {
             return (
             <React.Fragment>
                 <div onClick={() => handleMenu()} className="carrito">
-                    Carrito <strong>{cart.length}</strong>
-                    {menuHidden ? 
+                <i className="material-icons">shopping_cart</i>
+                <strong>{cart.length}</strong>
+                </div>
+                {menuHidden ? 
                     <div className="carrito-sub">{MyComponent}</div>
                 : null }
-                </div>
-        
             </React.Fragment>
             )}}
         </CartConsumer>

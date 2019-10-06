@@ -16,7 +16,11 @@ function MainHeader() {
             </nav>
         <Carrito />
         <div className="agregar">
-                     <Link to={"/adminhome"}>Admin</Link>
+                     <Link to={"/adminhome"}>
+                     <i className="material-icons">
+                        perm_identity
+                        </i>
+                     </Link>
                 </div>
         </header>
     )
