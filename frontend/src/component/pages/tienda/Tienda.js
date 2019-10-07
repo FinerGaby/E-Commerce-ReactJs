@@ -75,7 +75,6 @@ function Tienda(props) {
                 }
             
             return (
-                <div className="container-tienda">
                 <div className="container-tienda-flex">
                     <SidebarCat />
                     <div className="productos-tienda">
@@ -86,7 +85,6 @@ function Tienda(props) {
                      {MyComponent}
                      </div>
                      </div>
-                </div>
             )}}
           </FetchConsumer>
             )}

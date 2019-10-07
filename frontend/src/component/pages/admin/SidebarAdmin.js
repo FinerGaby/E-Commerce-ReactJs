@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 const SidebarAdmin = () => {
     return (
         <React.Fragment>
-            <div className="sidebar-admin">
+            <div className="sidebar-cat">
                 <ul>
-                    <li><Link to={"/adminhome"}>Home</Link></li>
-                    <li><Link to={"/agregar"}>Agregar</Link></li>
-                    <li><Link to={"/createcategory"}>Agregar Categoria</Link></li>
+                    <li><Link to={"/adminhome"}>Home Admin</Link></li>
+                    <li><Link to={"/agregar"}>Crear Producto</Link></li>
+                    <li><Link to={"/createcategory"}>Crear Categoria</Link></li>
                 </ul>
             </div>
         </React.Fragment>

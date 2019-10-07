@@ -43,7 +43,6 @@ const CategoriaAdd = () => {
     return (
         <React.Fragment>
             
-        <div className="container-tienda">
         <div className="container-tienda-flex">
                     <SidebarAdmin />
             <div>
@@ -64,8 +63,6 @@ const CategoriaAdd = () => {
                 }
             </div>
         </div>
-        </div>
-
         </React.Fragment>
         )}}
         </FetchConsumer>

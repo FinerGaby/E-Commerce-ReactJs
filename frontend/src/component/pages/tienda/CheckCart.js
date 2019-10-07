@@ -22,15 +22,34 @@ const CheckCart = () => {
                             }, 0);            
             MyComponent =
             <React.Fragment>
+            <table>
+            <caption>Summary CheckCart</caption>
+            <thead>
+                <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha:</th>
+                <th scope="col">Precio:</th>
+                <th scope="col">Cantida</th>
+                <th scope="col">Quitar</th>
+                </tr>
+            </thead>
+            <tbody>
             {cart.map( (e, i) => {
                 return (
-                    <div key={e.id}>
-                        {e.title} - ${e.precio}
-                        <span onClick={() => handleCartDelete(e.id)}>Quitar</span><br />
-                    </div>
+                    <tr key={e.id}>
+                    <td data-label="Nombre">{e.title}</td>
+                    <td data-label="Fecha">04/01/2016</td>
+                    <td data-label="Precio">${e.precio}</td>
+                    <td data-label="Cantidad">03/01/2016 - 03/31/2016</td>
+                    <td data-label="Quitar"><span onClick={() => handleCartDelete(e.id)}><i className="material-icons">delete</i></span></td>
+                    </tr>
                 )}
                 )}
-                Total: ${precioTotal}
+                <tr>
+                <td data-label="Monto Total">Total: ${precioTotal}</td>
+                </tr>
+                </tbody>
+                </table>
                 <div>Boton pagar</div>
              </React.Fragment>
            }
@@ -38,7 +57,6 @@ const CheckCart = () => {
             return (
             <React.Fragment>
                 <div className="container-tienda">
-                    <div>Check Product</div>
                     {MyComponent}
                 </div>
             </React.Fragment>
