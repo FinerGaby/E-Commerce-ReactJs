@@ -34,7 +34,8 @@ const FetchProvider = (props) => {
     let handleSubmit
     handleSubmit = async (value) => {
       
-      const { title, imagen, precio, descripcion, color, talle, id, editar, categoria } = value;
+      var tranformArray = value.talle.split(', '); // split string on comma space
+      const { title, imagen, precio, descripcion, color, id, editar, categoria } = value;
   
       if(editar) {
         const updateProducto = {
@@ -44,7 +45,7 @@ const FetchProvider = (props) => {
           descripcion,
           color,
           categoria,
-          talle
+          tranformArray
         }
         await axios.put(`http://localhost:8080/productos/${id}`, updateProducto) 
         fetchData();
@@ -57,7 +58,7 @@ const FetchProvider = (props) => {
           precio,
           descripcion,
           color,
-          talle,
+          tranformArray,
           categoria
         }
 
