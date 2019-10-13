@@ -1,4 +1,5 @@
 
+
 body {
   background: #000;
   margin: 0;
@@ -332,8 +333,9 @@ margin: auto;
   width: 100%;
 }
 .imagenes-muestra {
-  width: 45%;
+  width: 60%;
   text-align: center;
+  margin-right: 20px;
 }
 .info-producto {
   width: 55%;
@@ -351,19 +353,21 @@ margin: auto;
 }
 
 .imagenes-galeria-active {
-  background-size: 90%;
+  background-size: 100%;
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
+  border: 6px solid #d9d9d9;
 }
 
 .imagenes-galeria {
-  border: 2px solid #dcdcdc;
+  border: 4px solid #d9d9d9;
   background-size: 100%;
-  height: 100px;
+  height: 85px;
   width: 100%;
   margin-right: 5px;
   background-repeat: no-repeat;
+  margin-top: 10px;
 }
 
 .delete-producto {
@@ -421,7 +425,7 @@ margin: auto;
 }
 
 .flex-input input {
-  flex: 18%;
+  flex: 18% 1;
   margin-right: 20px;
 }
 

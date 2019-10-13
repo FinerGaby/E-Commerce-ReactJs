@@ -79,9 +79,10 @@ const AgregarProducto = (props) => {
 
     let handleChangeArray
     handleChangeArray = (id, estado) => e => {
+        // console.log(URL.createObjectURL(e.target.files[0]))
        switch (estado) {
            case 'imagen': 
-                    formValues.imagen[id] = e.target.value;
+                    formValues.imagen[id] = e.target.files[0].name;
                             setFormValues({ 
                                 ...formValues,
                                 [e.target.name]: e.target.value,
@@ -195,12 +196,12 @@ const AgregarProducto = (props) => {
                     </select>
                      </div>
 
-                    <input type="text" placeholder="Inserte el precio" name="precio" onChange={handleChange} value={formValues.precio}/>
+                    <input type="number" placeholder="Inserte el precio" name="precio" onChange={handleChange} value={formValues.precio}/>
 
                     <textarea name="descripcion" placeholder="Inserte el descripcion" onChange={handleChange} value={formValues.descripcion} />
 
                     <label id="idtest" htmlFor="idtest">Talle: 34, 55, 66</label>
-                    <input type="text" name="talle" placeholder='Inserte el talle 34, 55, 33'  onChange={handleChange} value={formValues.talle} />
+                    <input type="text" name="talle" placeholder='34, 55, 33'  onChange={handleChange} value={formValues.talle} />
                            
 
                     <label id="idtest" htmlFor="idtest">Imagen:</label>        
@@ -210,7 +211,8 @@ const AgregarProducto = (props) => {
                         if(index !== 0) { myButton = <button className="agregarmas danger" type="button"onClick={() => handleDeleteInput(index, 'imagen')} ><i class="material-icons">clear</i></button> }
                         return(
                             <React.Fragment key={index}>
-                                <input type="text" key={index}  name="imagen" placeholder="Inserte el imagen"  onChange={handleChangeArray(index, 'imagen')} value={formValues.imagen[index]} />
+                                <img src={formValues.imagen[index]} />
+                                <input type="file" name="imagen" key={index} onChange={handleChangeArray(index, 'imagen')} />
                                 {myButton}
                              </React.Fragment>
                         )
@@ -225,7 +227,7 @@ const AgregarProducto = (props) => {
                         if(index !== 0) { myButton =  <button className="agregarmas danger" type="button" onClick={() => handleDeleteInput(index, 'color')} ><i class="material-icons">clear</i></button> }
                         return(
                             <React.Fragment key={index}>
-                            <input type="text" key={index}  name="color" placeholder="Inserte el color"  onChange={handleChangeArray(index, 'color')} value={formValues.color[index]} />
+                            <input type="color" key={index}  name="color" placeholder="Inserte el color"  onChange={handleChangeArray(index, 'color')} value={formValues.color[index]} />
                             {myButton}
                             </React.Fragment>
                         )

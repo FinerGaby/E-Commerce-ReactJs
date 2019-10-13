@@ -48,7 +48,6 @@ const ProductoHome = () => {
                      <span>Fire Nike</span></div>
                 <div className="title-carrito">
                     <div className="title-home">{dataSlider.title}</div>
-                    <div className="description-home">{dataSlider.descripcion}</div>
                     <div className="precio-home">${dataSlider.precio}</div>
                         <div onClick={() => handleCart(dataSlider.id, data)} className="button-add">Add Cart</div>
                     </div>

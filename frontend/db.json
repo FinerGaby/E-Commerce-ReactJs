@@ -67,16 +67,16 @@
         "a4"
       ],
       "precio": 500,
-      "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+      "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
       "color": [
-        "blanco",
-        "negro",
-        "rosa"
+        "#800080",
+        "#8000ff",
+        "#ff00ff"
       ],
       "categoria": "2332",
       "talle": [
         "40",
-        "35",
+        "35 ",
         "38",
         "37"
       ],
@@ -105,6 +105,25 @@
         "37"
       ],
       "id": 5
+    },
+    {
+      "id": "asdsd",
+      "title": "sadsda",
+      "imagen": [
+        "a1.jpg"
+      ],
+      "precio": "asd",
+      "descripcion": "saddsa",
+      "color": [
+        "#706410",
+        "#8000ff"
+      ],
+      "talle": [
+        "32",
+        "33 ",
+        "55"
+      ],
+      "categoria": "2332"
     }
   ]
 }
