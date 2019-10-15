@@ -22,6 +22,9 @@ const ProductoSchema = new Schema({
     },
     talle: {
         type: Array, required: true
+    },
+    imagen: {
+        type: Array, required: true
     }
 });
 

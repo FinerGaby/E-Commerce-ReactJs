@@ -6,7 +6,7 @@ import SidebarAdmin from './SidebarAdmin';
 const AgregarProducto = (props) => {
 
     const [formValues, setFormValues] = useState({
-        id: '',
+        _id: '',
         title: '',
         precio: '',
         descripcion: '',
@@ -22,12 +22,12 @@ const AgregarProducto = (props) => {
           useEffect(() => {
             if(props.id) {
                    let editedProduct = async () => {
-                        const res = await axios.get(`http://localhost:8080/productos/${props.id}`);
+                        const res = await axios.get(`http://localhost:8080/api/productos/${props.id}`);
                         const {data} = res
                         console.log(data)
-                        const { title, imagen, precio, descripcion, color, talle, id, categoria } = data
+                        const { title, imagen, precio, descripcion, color, talle, _id, categoria } = data
                         setFormValues({
-                          id,
+                          _id,
                           precio,
                           descripcion, 
                           color, 
@@ -42,7 +42,6 @@ const AgregarProducto = (props) => {
             } else {
 
                     setFormValues({
-                        id: '',
                         title: '',
                         precio: '',
                         descripcion: '',
@@ -79,6 +78,7 @@ const AgregarProducto = (props) => {
 
     let handleChangeArray
     handleChangeArray = (id, estado) => e => {
+        console.log(e.target.value)
         // console.log(URL.createObjectURL(e.target.files[0]))
        switch (estado) {
            case 'imagen': 
@@ -170,7 +170,7 @@ const AgregarProducto = (props) => {
                     let validationImagen = formValues.imagen.includes('') || formValues.imagen.length === 0;
                     let validationColor = formValues.color.includes('') || formValues.color.length === 0;
                     let validationTalle = formValues.talle.length === 0;
-                    let validationGlobal = formValues.title === '' || formValues.precio === '' || formValues.descripcion === '' || formValues.id === '';
+                    let validationGlobal = formValues.title === '' || formValues.precio === '' || formValues.descripcion === '';
 
                     if(validationGlobal || validationImagen || validationColor || validationTalle) {
                         setValidationForm(true)
@@ -182,8 +182,8 @@ const AgregarProducto = (props) => {
                     
                 }}>
 
-                    <input type="text" placeholder="Id del producto" name="id" onChange={handleChange} value={formValues.id} />
-
+                    {props.id ? <input type="text" placeholder="Id del producto" name="id" value={formValues._id} /> : null  }
+                    
                     <div class="flex-input">
                     <input type="text" placeholder="Inserte el nombre del producto" name="title" onChange={handleChange} value={formValues.title} />
 

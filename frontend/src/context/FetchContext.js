@@ -17,9 +17,9 @@ const FetchProvider = (props) => {
     }, []);
 
     let fetchData = async () => {
-      const categoriasGet = await axios.get(`http://localhost:8080/categoria`);
-      setCategoriasGet(categoriasGet.data)
-      const res = await axios.get(`http://localhost:8080/productos`);
+      //const categoriasGet = await axios.get(`http://localhost:8080/categoria`);
+      //setCategoriasGet(categoriasGet.data)
+      const res = await axios.get(`http://localhost:8080/api/productos`);
       console.log(res);
       const fetchingArray = res.data;
   
@@ -33,9 +33,9 @@ const FetchProvider = (props) => {
   
     let handleSubmit
     handleSubmit = async (value) => {
-      
+      console.log(value)
       var talle = value.talle.split(', '); // split string on comma space
-      const { title, imagen, precio, descripcion, color, id, editar, categoria } = value;
+      const { title, imagen, precio, descripcion, color, _id, editar, categoria } = value;
   
       if(editar) {
         const updateProducto = {
@@ -47,12 +47,11 @@ const FetchProvider = (props) => {
           categoria,
           talle
         }
-        await axios.put(`http://localhost:8080/productos/${id}`, updateProducto) 
+        await axios.put(`http://localhost:8080/api/productos/${_id}`, updateProducto) 
         fetchData();
 
       } else {
         const addProducto = {
-          id,
           title,
           imagen,
           precio,
@@ -62,7 +61,7 @@ const FetchProvider = (props) => {
           categoria
         }
 
-        await axios.post(`http://localhost:8080/productos`, addProducto)
+        await axios.post(`http://localhost:8080/api/productos`, addProducto)
         fetchData();
 
       }
@@ -70,7 +69,8 @@ const FetchProvider = (props) => {
 
     let handleDelete
     handleDelete = async (id) => {
-      await axios.delete(`http://localhost:8080/productos/${id}`) 
+      console.log(id)
+      await axios.delete(`http://localhost:8080/api/productos/${id}`) 
       fetchData();
     }
   

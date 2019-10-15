@@ -20,6 +20,16 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 
+//Habilitar CORS
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+  });
+
+
 // Routes de la la base
 app.use('/api/productos', require('../routes/productos.routes'))
 

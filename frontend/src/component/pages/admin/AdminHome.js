@@ -33,12 +33,12 @@ const AdminHome = () => {
                            data.map( (productos, index) => {
                                 
                                 return (
-                                    <tr key={productos.id}>
+                                    <tr key={productos._id}>
                                     <td data-label="Nombre">{productos.title} </td>
                                     <td data-label="Fecha">04/01/2016</td>
                                     <td data-label="Precio">${productos.precio}</td>
                                     <td data-label="Categoria">{productos.categoria}</td>
-                                    <td data-label="Quitar"><Link to={`/editarproducto/${productos.id}`}><i class="material-icons">edit</i></Link>  <span onClick={() => handleDelete(productos.id)}><i className="material-icons">delete</i></span></td>
+                                    <td data-label="Quitar"><Link to={`/editarproducto/${productos._id}`}><i class="material-icons">edit</i></Link>  <span onClick={() => handleDelete(productos._id)}><i className="material-icons">delete</i></span></td>
                                     </tr>
                                 )})
                            }
