@@ -5,6 +5,20 @@ const router = express.Router();
 //busco los modelos de la base de datos
 const Producto = require('../models/productos.models')
 
+var multer  = require('multer')
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'src/public/imagen')
+  },
+  filename: function (req, file, cb) {
+      cb(null, req.body.title + file.originalname);        
+  }
+})
+
+var upload = multer({ storage: storage })
+
+
 
 //mando get ".find" parametro de mongodb, mostrar todos los user
 router.get('/',async(req, res) => {
@@ -19,9 +33,11 @@ router.get('/:id', async (req, res ) => {
 
 
 // "POST" guardar producto
-router.post('/', async (req, res) => {
-    console.log(req.body)
-    const { title, descripcion, imagen, precio, color, talle, categoria } = req.body;
+router.post('/', upload.array('imagen'), async (req, res) => {
+    console.log(req.body.imagen)
+    console.log(req.files['imagen'])
+    console.log(req.files)
+    const { title, imagen, descripcion, precio, color, talle, categoria } = req.body;
     const newProducto = new Producto({ title, descripcion, imagen, precio, color, talle, categoria });
     await newProducto.save();
     res.json({ status: 'Producto Save'});

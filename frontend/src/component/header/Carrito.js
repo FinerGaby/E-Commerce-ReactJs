@@ -34,9 +34,9 @@ function Carrito()  {
             <React.Fragment>
             {cart.map( (e, i) => {
                 return (
-                    <div key={e.id}>
+                    <div key={e._id}>
                     {e.title} - ${e.precio}
-                        <span onClick={() => handleCartDelete(e.id)}><i className="material-icons">delete</i></span><br />
+                        <span onClick={() => handleCartDelete(e._id)}><i className="material-icons">delete</i></span><br />
                     </div>
                 )}
                 )}

@@ -35,7 +35,14 @@ const FetchProvider = (props) => {
     handleSubmit = async (value) => {
       console.log(value)
       var talle = value.talle.split(', '); // split string on comma space
-      const { title, imagen, precio, descripcion, color, _id, editar, categoria } = value;
+      var precio = parseInt(value.precio);
+      console.log(typeof precio)
+
+      //const imagen = new FormData();
+      //imagen.append('imagen', value.imagen);
+      
+
+      const { title,imagen, descripcion, color, _id, editar, categoria } = value;
   
       if(editar) {
         const updateProducto = {
@@ -51,6 +58,13 @@ const FetchProvider = (props) => {
         fetchData();
 
       } else {
+
+        const config = {
+          headers: {
+              'content-type': 'multipart/form-data'
+          }
+      };
+
         const addProducto = {
           title,
           imagen,
@@ -60,8 +74,9 @@ const FetchProvider = (props) => {
           talle,
           categoria
         }
-
-        await axios.post(`http://localhost:8080/api/productos`, addProducto)
+        console.log(addProducto)
+        const res = await axios.post(`http://localhost:8080/api/productos`,addProducto)
+        console.log(res)
         fetchData();
 
       }

@@ -23,8 +23,8 @@ const ProductoId = (props) => {
                 if (!dataId) {
                     //Parseo a number porque props.id viene en formato string y no me dejaba realizar el filtrado
                     //console.log(typeof props.id)
-                    const parseoId = parseInt(props.id);
-                    const filter = data.filter(e => e.id === parseoId);
+                    const parseoId = parseInt(props._id);
+                    const filter = data.filter(e => e._id === parseoId);
                     setDataId(filter[0]);
                 }
 
@@ -32,7 +32,7 @@ const ProductoId = (props) => {
                 if (dataId === undefined) {
                     MyComponent = <div>Cargando</div>
                 } else {
-                    const { title, precio, descripcion, imagen, color, talle, id } = dataId;
+                    const { title, precio, descripcion, imagen, color, talle, _id } = dataId;
                     if (imagen === undefined) { return }
                     MyComponent =
                     <div className="container-tienda">
@@ -50,7 +50,7 @@ const ProductoId = (props) => {
                                 { talle.map(talles => <div key={talles} className="talles-producto">{talles}</div> ) }
                                 </div>
                                 <div className="precio-producto">Precio final: ${precio}</div>
-                                <div onClick={() => handleCart(id, data)} className="button-add">Add Cart</div>
+                                <div onClick={() => handleCart(_id, data)} className="button-add">Add Cart</div>
                             </div>
                         </div>
                     </div>

@@ -36,12 +36,12 @@ const CheckCart = () => {
             <tbody>
             {cart.map( (e, i) => {
                 return (
-                    <tr key={e.id}>
+                    <tr key={e._id}>
                     <td data-label="Nombre">{e.title}</td>
                     <td data-label="Fecha">04/01/2016</td>
                     <td data-label="Precio">${e.precio}</td>
                     <td data-label="Cantidad">03/01/2016 - 03/31/2016</td>
-                    <td data-label="Quitar"><span onClick={() => handleCartDelete(e.id)}><i className="material-icons">delete</i></span></td>
+                    <td data-label="Quitar"><span onClick={() => handleCartDelete(e._id)}><i className="material-icons">delete</i></span></td>
                     </tr>
                 )}
                 )}

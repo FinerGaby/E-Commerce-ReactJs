@@ -19,10 +19,11 @@ const CartProvider = (props) => {
      Si encontro el array con la misma id sabemos que no es undefinend entonces no se va a guardar
      entonces agrego otro producto este no tiene la misma id que se encuentra en el estado entonces es undefinend
      ejecuto para que se guarde */
+     console.log(id)
     const findData = cart.find(e => id === e.id);
     if (findData === undefined) {
-      const filterCart = data.filter(e => id === e.id)
-      
+      const filterCart = data.filter(e => id === e._id)
+      console.log(filterCart)
       const resultFilter = cart.concat(filterCart)
       setCart(resultFilter)
     } 
@@ -32,7 +33,7 @@ const CartProvider = (props) => {
   let handleCartDelete
   handleCartDelete = (id) => {
      
-    const filterDelete = cart.filter(e => id !== e.id);
+    const filterDelete = cart.filter(e => id !== e._id);
     setCart(filterDelete);
 
   }

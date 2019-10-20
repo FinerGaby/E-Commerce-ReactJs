@@ -16,7 +16,7 @@ const SidebarCat = () => {
                 <ul>
                     <li><Link to={`/tienda`}>Ver todos</Link></li>
                     {categoriasGet.map((cat, index) => 
-                        <li key={cat.id}><Link to={`/categoria/${cat.id}`}>{cat.name}</Link></li>
+                        <li key={cat._id}><Link to={`/categoria/${cat._id}`}>{cat.name}</Link></li>
                     )}
                 </ul>
             </div>

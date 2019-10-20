@@ -78,11 +78,12 @@ const AgregarProducto = (props) => {
 
     let handleChangeArray
     handleChangeArray = (id, estado) => e => {
-        console.log(e.target.value)
+        //console.log(e.target.value)
         // console.log(URL.createObjectURL(e.target.files[0]))
        switch (estado) {
            case 'imagen': 
-                    formValues.imagen[id] = e.target.files[0].name;
+                    console.log(e.target.files[0])
+                    formValues.imagen[id] = e.target.files[0];
                             setFormValues({ 
                                 ...formValues,
                                 [e.target.name]: e.target.value,
@@ -136,6 +137,19 @@ const AgregarProducto = (props) => {
         }) 
     }
 
+    let handleChangeNumber
+    handleChangeNumber = (e) => {
+        const spaceValidation = e.target.value;
+        const regex = /^[0-9\b]+$/;
+        if (spaceValidation === '' || regex.test(spaceValidation)) {
+            setFormValues({
+                ...formValues,
+                [e.target.name]: e.target.value
+            }) 
+        }
+    }
+
+
 
     let handleChangeCat
     handleChangeCat = (e) => {
@@ -164,7 +178,7 @@ const AgregarProducto = (props) => {
                 <SidebarAdmin />
              <div className="tables-admin">
              {validationForm ? <div className="error-validation">Te falto completar un campo</div> : null}      
-            <form className="form-add" onSubmit={(e) => {
+            <form className="form-add"  onSubmit={(e) => {
                     e.preventDefault();
 
                     let validationImagen = formValues.imagen.includes('') || formValues.imagen.length === 0;
@@ -184,7 +198,7 @@ const AgregarProducto = (props) => {
 
                     {props.id ? <input type="text" placeholder="Id del producto" name="id" value={formValues._id} /> : null  }
                     
-                    <div class="flex-input">
+                    <div className="flex-input">
                     <input type="text" placeholder="Inserte el nombre del producto" name="title" onChange={handleChange} value={formValues.title} />
 
                     <span>Categoria:</span>
@@ -196,7 +210,7 @@ const AgregarProducto = (props) => {
                     </select>
                      </div>
 
-                    <input type="number" placeholder="Inserte el precio" name="precio" onChange={handleChange} value={formValues.precio}/>
+                    <input type="text"  placeholder="Inserte el precio" name="precio" onChange={handleChangeNumber} value={formValues.precio}/>
 
                     <textarea name="descripcion" placeholder="Inserte el descripcion" onChange={handleChange} value={formValues.descripcion} />
 
@@ -205,10 +219,10 @@ const AgregarProducto = (props) => {
                            
 
                     <label id="idtest" htmlFor="idtest">Imagen:</label>        
-                    <div class="flex-input">
+                    <div className="flex-input">
                     { formValues.imagen.map((imagen, index) => {
                         let myButton
-                        if(index !== 0) { myButton = <button className="agregarmas danger" type="button"onClick={() => handleDeleteInput(index, 'imagen')} ><i class="material-icons">clear</i></button> }
+                        if(index !== 0) { myButton = <button className="agregarmas danger" type="button"onClick={() => handleDeleteInput(index, 'imagen')} ><i className="material-icons">clear</i></button> }
                         return(
                             <React.Fragment key={index}>
                                 <img src={formValues.imagen[index]} />
@@ -217,14 +231,14 @@ const AgregarProducto = (props) => {
                              </React.Fragment>
                         )
                     })}
-                    <button className="agregarmas" type="button" onClick={() => handleAddInput('imagen')} > <i class="material-icons">add</i></button>
+                    <button className="agregarmas" type="button" onClick={() => handleAddInput('imagen')} > <i className="material-icons">add</i></button>
                     </div>
 
                     <label id="idtest" htmlFor="idtest">Color:</label>
-                    <div class="flex-input">
+                    <div className="flex-input">
                     { formValues.color.map((color, index) => {
                         let myButton
-                        if(index !== 0) { myButton =  <button className="agregarmas danger" type="button" onClick={() => handleDeleteInput(index, 'color')} ><i class="material-icons">clear</i></button> }
+                        if(index !== 0) { myButton =  <button className="agregarmas danger" type="button" onClick={() => handleDeleteInput(index, 'color')} ><i className="material-icons">clear</i></button> }
                         return(
                             <React.Fragment key={index}>
                             <input type="color" key={index}  name="color" placeholder="Inserte el color"  onChange={handleChangeArray(index, 'color')} value={formValues.color[index]} />
@@ -232,7 +246,7 @@ const AgregarProducto = (props) => {
                             </React.Fragment>
                         )
                     })}
-                    <button className="agregarmas" type="button" onClick={() => handleAddInput('color')} ><i class="material-icons">add</i> </button>
+                    <button className="agregarmas" type="button" onClick={() => handleAddInput('color')} ><i className="material-icons">add</i> </button>
                     </div>
 
                     {formValues.editar ? <input type="submit" value="Editar" /> : <input type="submit" value="Crear" />} 
