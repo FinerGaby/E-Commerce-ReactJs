@@ -11,6 +11,7 @@ const AgregarProducto = (props) => {
         precio: '',
         descripcion: '',
         imagen: [''],
+        imagenName: [''],
         color: [''],
         talle: [''],
         categoria: '------',
@@ -46,6 +47,7 @@ const AgregarProducto = (props) => {
                         precio: '',
                         descripcion: '',
                         imagen: [''],
+                        imagenName: [''],
                         color: [''],
                         talle: '',
                         categoria: '------',
@@ -83,11 +85,14 @@ const AgregarProducto = (props) => {
        switch (estado) {
            case 'imagen': 
                     console.log(e.target.files[0])
+                    formValues.imagenName[id] = e.target.files[0].name
                     formValues.imagen[id] = e.target.files[0];
                             setFormValues({ 
                                 ...formValues,
                                 [e.target.name]: e.target.value,
-                                imagen: formValues.imagen
+                                imagen: formValues.imagen,
+                                imagenName: formValues.imagenName
+
                             })
                         break;
             case 'color': 
@@ -217,6 +222,20 @@ const AgregarProducto = (props) => {
                     <label id="idtest" htmlFor="idtest">Talle: 34, 55, 66</label>
                     <input type="text" name="talle" placeholder='34, 55, 33'  onChange={handleChange} value={formValues.talle} />
                            
+                    <label id="idtest" htmlFor="idtest">Color:</label>
+                    <div className="flex-input">
+                    { formValues.color.map((color, index) => {
+                        let myButton
+                        if(index !== 0) { myButton =  <button className="agregarmas danger" type="button" onClick={() => handleDeleteInput(index, 'color')} ><i className="material-icons">clear</i></button> }
+                        return(
+                            <React.Fragment key={index}>
+                            <input type="color" key={index}  name="color" placeholder="Inserte el color"  onChange={handleChangeArray(index, 'color')} value={formValues.color[index]} />
+                            {myButton}
+                            </React.Fragment>
+                        )
+                    })}
+                    <button className="agregarmas" type="button" onClick={() => handleAddInput('color')} ><i className="material-icons">add</i> </button>
+                    </div>
 
                     <label id="idtest" htmlFor="idtest">Imagen:</label>        
                     <div className="flex-input">
@@ -232,21 +251,6 @@ const AgregarProducto = (props) => {
                         )
                     })}
                     <button className="agregarmas" type="button" onClick={() => handleAddInput('imagen')} > <i className="material-icons">add</i></button>
-                    </div>
-
-                    <label id="idtest" htmlFor="idtest">Color:</label>
-                    <div className="flex-input">
-                    { formValues.color.map((color, index) => {
-                        let myButton
-                        if(index !== 0) { myButton =  <button className="agregarmas danger" type="button" onClick={() => handleDeleteInput(index, 'color')} ><i className="material-icons">clear</i></button> }
-                        return(
-                            <React.Fragment key={index}>
-                            <input type="color" key={index}  name="color" placeholder="Inserte el color"  onChange={handleChangeArray(index, 'color')} value={formValues.color[index]} />
-                            {myButton}
-                            </React.Fragment>
-                        )
-                    })}
-                    <button className="agregarmas" type="button" onClick={() => handleAddInput('color')} ><i className="material-icons">add</i> </button>
                     </div>
 
                     {formValues.editar ? <input type="submit" value="Editar" /> : <input type="submit" value="Crear" />} 

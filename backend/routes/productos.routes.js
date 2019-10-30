@@ -9,10 +9,10 @@ var multer  = require('multer')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'src/public/imagen')
+    cb(null, 'public/imagen')
   },
   filename: function (req, file, cb) {
-      cb(null, req.body.title + file.originalname);        
+      cb(null, req.body.title.toUpperCase() + file.originalname);        
   }
 })
 
@@ -31,16 +31,30 @@ router.get('/:id', async (req, res ) => {
     res.json(productoOne)
 })
 
-
-// "POST" guardar producto
-router.post('/', upload.array('imagen'), async (req, res) => {
-    console.log(req.body.imagen)
-    console.log(req.files['imagen'])
+router.post('/upload', upload.array('file'), async (req, res) => {
     console.log(req.files)
-    const { title, imagen, descripcion, precio, color, talle, categoria } = req.body;
-    const newProducto = new Producto({ title, descripcion, imagen, precio, color, talle, categoria });
+})
+// "POST" guardar producto
+router.post('/',upload.array('file'), async (req, res) => {
+    var filenames = req.files.map(function(file) {
+        return file.filename; // return name files
+      });
+      console.log(req.body)
+    var precioNumber = parseInt(req.body.precio);
+    console.log(typeof precioNumber)
+    const reqBodys = {
+        title: req.body.title,
+        descripcion: req.body.description,
+        precio: precioNumber,
+        color: req.body.color,
+        talle: req.body.talle,
+        categoria: req.body.categoria,
+        imagen: filenames
+    }
+    const newProducto = new Producto(reqBodys);
+    console.log(newProducto)
     await newProducto.save();
-    res.json({ status: 'Producto Save'});
+    res.json({ status: 'Producto Save'})
 })
 
 // "DELETE" borrar producto por id

@@ -35,19 +35,24 @@ const FetchProvider = (props) => {
     handleSubmit = async (value) => {
       console.log(value)
       var talle = value.talle.split(', '); // split string on comma space
-      var precio = parseInt(value.precio);
-      console.log(typeof precio)
 
-      //const imagen = new FormData();
-      //imagen.append('imagen', value.imagen);
-      
-
-      const { title,imagen, descripcion, color, _id, editar, categoria } = value;
-  
+      const { title, imagenName, precio, descripcion, color, _id, editar, categoria } = value;
+      const formdata = new FormData();
+      formdata.append('title', title);
+      formdata.append('description', descripcion);
+      formdata.append('precio', precio);
+      formdata.append('color', JSON.stringify(color));
+      formdata.append('talle', JSON.stringify(talle));
+      formdata.append('categoria', categoria);
+      var arr = value.imagen;
+      for (var i = 0; i < arr.length; i++) {
+        formdata.append('file', arr[i]);
+      }  
+   
       if(editar) {
         const updateProducto = {
           title,
-          imagen,
+          imagenName,
           precio,
           descripcion,
           color,
@@ -58,25 +63,9 @@ const FetchProvider = (props) => {
         fetchData();
 
       } else {
+        console.log(...formdata)
+        //await axios.post(`http://localhost:8080/api/productos`, formdata)
 
-        const config = {
-          headers: {
-              'content-type': 'multipart/form-data'
-          }
-      };
-
-        const addProducto = {
-          title,
-          imagen,
-          precio,
-          descripcion,
-          color,
-          talle,
-          categoria
-        }
-        console.log(addProducto)
-        const res = await axios.post(`http://localhost:8080/api/productos`,addProducto)
-        console.log(res)
         fetchData();
 
       }
