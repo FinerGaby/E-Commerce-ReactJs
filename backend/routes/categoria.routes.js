@@ -9,4 +9,14 @@ router.get('/', async (req, res) => {
     res.json(getCategorias)
 })
 
+router.post('/', async (req, res) => {
+    var reqBodys = {
+        name: req.body.name,
+        description: req.body.description
+    }
+    const categoriaNew = new Categorias(reqBodys)
+    await categoriaNew.save()
+    res.json({ status: 'Categoria guardada'})
+})
+
 module.exports = router

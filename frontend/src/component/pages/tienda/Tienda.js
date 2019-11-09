@@ -21,17 +21,19 @@ function Tienda(props) {
 
                 //accedo a el estado del context
                 const { data } = value;
+                console.log(props);
+
 
                 let MyComponent
                 if( data.lenght === 0) {
                     MyComponent = <div>no datos</div>
                 } else {
-                    if( props._id ) {
+                    if( props.id ) {
                         MyComponent = 
                         <React.Fragment>
                             <div className="productos">
                             {
-                                data.filter(e => e.categoria === props._id).map( (e, i) => {
+                                data.filter(e => e.categoria === props.id).map( (e, i) => {
                             const divStyle = {
                              backgroundImage: `url('/img/${e.imagen[0]}.jpg')`
                              };

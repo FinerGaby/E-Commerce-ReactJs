@@ -210,7 +210,7 @@ const AgregarProducto = (props) => {
                     <select value={formValues.categoria} onChange={handleChangeCat}>
                          <option value="-----">------</option>
                         {categoriasGet.map(cat =>
-                             <option key={cat.id} value={cat.id}>{cat.name}</option>
+                             <option key={cat._id} value={cat._id}>{cat.name}</option>
                         )};
                     </select>
                      </div>

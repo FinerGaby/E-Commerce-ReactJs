@@ -17,8 +17,8 @@ const FetchProvider = (props) => {
     }, []);
 
     let fetchData = async () => {
-      //const categoriasGet = await axios.get(`http://localhost:8080/categoria`);
-      //setCategoriasGet(categoriasGet.data)
+      const categoriasGet = await axios.get(`http://localhost:8080/api/categorias`);
+      setCategoriasGet(categoriasGet.data)
       const res = await axios.get(`http://localhost:8080/api/productos`);
       console.log(res);
       const fetchingArray = res.data;
@@ -35,8 +35,9 @@ const FetchProvider = (props) => {
     handleSubmit = async (value) => {
       console.log(value)
       var talle = value.talle.split(', '); // split string on comma space
-
+      console.log(talle)
       const { title, imagenName, precio, descripcion, color, _id, editar, categoria } = value;
+      console.log(categoria)
       const formdata = new FormData();
       formdata.append('title', title);
       formdata.append('description', descripcion);
@@ -64,7 +65,7 @@ const FetchProvider = (props) => {
 
       } else {
         console.log(...formdata)
-        //await axios.post(`http://localhost:8080/api/productos`, formdata)
+        await axios.post(`http://localhost:8080/api/productos`, formdata)
 
         fetchData();
 

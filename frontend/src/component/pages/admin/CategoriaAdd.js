@@ -9,7 +9,7 @@ const CategoriaAdd = () => {
 
     const [categoria, setCategoria] = useState({
         name: '',
-        id: ''
+        description: ''
     })
 
     let handleChange
@@ -24,7 +24,7 @@ const CategoriaAdd = () => {
     handleSubmit = async e => {
         e.preventDefault();
         console.log(categoria)
-       const res = await axios.post(`http://localhost:8080/categoria`, categoria)
+       const res = await axios.post(`http://localhost:8080/api/categorias`, categoria)
        console.log(res)
       }
 
@@ -48,8 +48,9 @@ const CategoriaAdd = () => {
             <div className="tables-admin">
                 <form onSubmit={handleSubmit}>
                         <label id="idtest" htmlFor="idtest">Agregar categoria:</label>
-                        <input type="text" name="id" onChange={handleChange} value={categoria.id}/>
-                        <input type="text" name="name" onChange={handleChange} value={categoria.categoria}/>
+                        <input type="text" placeholder="Nombre categoria" name="name" onChange={handleChange} value={categoria.name}/>
+                        <input type="text" placeholder="Descripcion" name="description" onChange={handleChange} value={categoria.description}/>
+
                         <input type="submit" value="Crear" />
                  </form>
 
@@ -65,8 +66,8 @@ const CategoriaAdd = () => {
                     <tbody>
                 {
                 categoriasGet.map((cat, index) => 
-                <tr key={cat.id}>
-                                    <td data-label="Id"> {cat.id} </td>
+                <tr key={cat._id}>
+                                    <td data-label="Id"> {cat._id} </td>
                                     <td data-label="Nombre"> {cat.name} </td>
                                     <td data-label="Quitar"><span onClick={() => handleDelete(cat.id)}><i className="material-icons">delete</i></span></td>
                                     </tr>

@@ -31,9 +31,6 @@ router.get('/:id', async (req, res ) => {
     res.json(productoOne)
 })
 
-router.post('/upload', upload.array('file'), async (req, res) => {
-    console.log(req.files)
-})
 // "POST" guardar producto
 router.post('/',upload.array('file'), async (req, res) => {
     var filenames = req.files.map(function(file) {
@@ -41,20 +38,23 @@ router.post('/',upload.array('file'), async (req, res) => {
       });
       console.log(req.body)
     var precioNumber = parseInt(req.body.precio);
+    var jsonParseArrayTalle = JSON.parse(req.body.talle)
+    var jsonParseArrayColor =JSON.parse(req.body.color)
+   
     console.log(typeof precioNumber)
     const reqBodys = {
         title: req.body.title,
         descripcion: req.body.description,
         precio: precioNumber,
-        color: req.body.color,
-        talle: req.body.talle,
+        color: jsonParseArrayColor,
+        talle: jsonParseArrayTalle,
         categoria: req.body.categoria,
         imagen: filenames
     }
-    const newProducto = new Producto(reqBodys);
+     const newProducto = new Producto(reqBodys);
     console.log(newProducto)
     await newProducto.save();
-    res.json({ status: 'Producto Save'})
+    res.json({ status: 'Producto Save'})  
 })
 
 // "DELETE" borrar producto por id

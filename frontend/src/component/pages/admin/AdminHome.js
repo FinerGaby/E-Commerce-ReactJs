@@ -38,7 +38,7 @@ const AdminHome = () => {
                                     <td data-label="Fecha">04/01/2016</td>
                                     <td data-label="Precio">${productos.precio}</td>
                                     <td data-label="Categoria">{productos.categoria}</td>
-                                    <td data-label="Quitar"><Link to={`/editarproducto/${productos._id}`}><i class="material-icons">edit</i></Link>  <span onClick={() => handleDelete(productos._id)}><i className="material-icons">delete</i></span></td>
+                                    <td data-label="Quitar"><Link to={`/editarproducto/${productos._id}`}><i className="material-icons">edit</i></Link>  <span onClick={() => handleDelete(productos._id)}><i className="material-icons">delete</i></span></td>
                                     </tr>
                                 )})
                            }

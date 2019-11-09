@@ -13,6 +13,10 @@ function MainHeader() {
                     <li><Link to={"/empresa"}>Empresa</Link></li>
                     <li><Link to={"/contacto"}>Contacto</Link></li>
                 </ul>
+                <ul class="sign-out">
+                    <li>Login</li>
+                    <li>Register</li>
+                </ul>
             </nav>
         <Carrito />
         <div className="agregar">

@@ -22,9 +22,8 @@ const ProductoId = (props) => {
 
                 if (!dataId) {
                     //Parseo a number porque props.id viene en formato string y no me dejaba realizar el filtrado
-                    //console.log(typeof props.id)
-                    const parseoId = parseInt(props._id);
-                    const filter = data.filter(e => e._id === parseoId);
+                    console.log(typeof props.id)
+                    const filter = data.filter(e => e._id === props.id);
                     setDataId(filter[0]);
                 }
 
@@ -32,6 +31,7 @@ const ProductoId = (props) => {
                 if (dataId === undefined) {
                     MyComponent = <div>Cargando</div>
                 } else {
+                    console.log(dataId)
                     const { title, precio, descripcion, imagen, color, talle, _id } = dataId;
                     if (imagen === undefined) { return }
                     MyComponent =
