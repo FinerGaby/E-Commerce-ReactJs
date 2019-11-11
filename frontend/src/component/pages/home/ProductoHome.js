@@ -39,7 +39,7 @@ const ProductoHome = () => {
                MyComponent = <div>no datos</div>
            } else {
             const divStyle = {
-                backgroundImage: `url('/img/${dataSlider.imagen[0]}.jpg')`
+                backgroundImage: `url('/img/${dataSlider.imagen[0]}')`
             };
                 MyComponent = 
                <React.Fragment>

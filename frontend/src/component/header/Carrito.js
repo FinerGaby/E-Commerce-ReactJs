@@ -50,7 +50,7 @@ function Carrito()  {
             <React.Fragment>
                 <div onClick={() => handleMenu()} className="carrito">
                 <i className="material-icons">shopping_cart</i>
-                <strong>{cart.length}</strong>
+                <span>{cart.length}</span>
                 </div>
                 {menuHidden ? 
                     <div className="carrito-sub">{MyComponent}</div>

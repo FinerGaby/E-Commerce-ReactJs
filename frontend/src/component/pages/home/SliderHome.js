@@ -8,7 +8,7 @@ function SliderHome({data, handleSlider, handleCart}) {
                 <section className="slider">
                 {data.map( (e, i) => {
                 const divStyle = {
-                backgroundImage: `url('/img/${e.imagen[0]}.jpg')`  
+                backgroundImage: `url('/img/${e.imagen[0]}')`  
                 }
                 return (
                         <article 

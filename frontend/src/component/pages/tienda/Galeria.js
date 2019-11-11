@@ -11,7 +11,7 @@ const Galeria = (props) => {
     const activeImagen = imagen[activeIndex];
 
     const divStyleActive = {
-        backgroundImage: `url('/img/${activeImagen}.jpg')`
+        backgroundImage: `url('/img/${activeImagen}')`
         };
 
     return (
@@ -21,7 +21,7 @@ const Galeria = (props) => {
          {
              imagen.map( (galeria, index) => {
                 const divStyle = {
-                backgroundImage: `url('/img/${galeria}.jpg')`
+                backgroundImage: `url('/img/${galeria}')`
                 };
                  return(
                          <div onClick={() => setActiveIndex(index)} 

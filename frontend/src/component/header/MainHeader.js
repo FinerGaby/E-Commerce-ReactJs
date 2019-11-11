@@ -10,7 +10,7 @@ function MainHeader() {
                 <ul>
                     <li><Link to={"/"}>Home</Link></li>
                     <li><Link to={"/tienda"}>Tienda</Link></li>
-                    <li><Link to={"/empresa"}>Empresa</Link></li>
+                    <li><Link to={"/empresa"}>Leeme</Link></li>
                     <li><Link to={"/contacto"}>Contacto</Link></li>
                 </ul>
                 <ul class="sign-out">

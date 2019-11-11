@@ -21,7 +21,6 @@ function Tienda(props) {
 
                 //accedo a el estado del context
                 const { data } = value;
-                console.log(props);
 
 
                 let MyComponent
@@ -35,7 +34,7 @@ function Tienda(props) {
                             {
                                 data.filter(e => e.categoria === props.id).map( (e, i) => {
                             const divStyle = {
-                             backgroundImage: `url('/img/${e.imagen[0]}.jpg')`
+                             backgroundImage: `url('/img/${e.imagen[0]}')`
                              };
                                return (
                                   
@@ -57,7 +56,7 @@ function Tienda(props) {
                         {
                             data.map( (e, i) => {
                             const divStyle = {
-                             backgroundImage: `url('/img/${e.imagen[0]}.jpg')`
+                                backgroundImage: `url('/img/${e.imagen[0]}')`
                              };
                                return (
                                   

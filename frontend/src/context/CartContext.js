@@ -20,7 +20,7 @@ const CartProvider = (props) => {
      entonces agrego otro producto este no tiene la misma id que se encuentra en el estado entonces es undefinend
      ejecuto para que se guarde */
      console.log(id)
-    const findData = cart.find(e => id === e.id);
+    const findData = cart.find(e => id === e._id);
     if (findData === undefined) {
       const filterCart = data.filter(e => id === e._id)
       console.log(filterCart)
