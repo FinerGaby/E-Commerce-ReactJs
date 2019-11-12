@@ -201,57 +201,66 @@ const AgregarProducto = (props) => {
                     
                 }}>
 
-                    {props.id ? <input type="text" placeholder="Id del producto" name="id" value={formValues._id} /> : null  }
-                    
-                    <div className="flex-input">
-                    <input type="text" placeholder="Inserte el nombre del producto" name="title" onChange={handleChange} value={formValues.title} />
+                    {props.id ?    <h2>Editar Producto {formValues.title} </h2> : <h2>Crear Producto nuevo</h2>  }
 
-                    <span>Categoria:</span>
+                    {props.id ? <input type="hidden" placeholder="Id del producto" name="id" value={formValues._id} /> : null  }
+                    
+                    <div class="flex-producto">
+                        <div>
+                    <label id="idtest" htmlFor="idtest">Ingrese el titulo:  </label>
+                    <input type="text" placeholder="Inserte el nombre del producto" name="title" onChange={handleChange} value={formValues.title} />
+                    </div>
+                    <div>
+                    <label id="idtest" htmlFor="idtest">Ingrese el precio:</label>
+                    <input type="text"  placeholder="Inserte el precio" name="precio" onChange={handleChangeNumber} value={formValues.precio}/>
+                    </div>
+                    <div>
+                    <label id="idtest" htmlFor="idtest">Seleccione la categoria:  </label>
                     <select value={formValues.categoria} onChange={handleChangeCat}>
                          <option value="-----">------</option>
                         {categoriasGet.map(cat =>
                              <option key={cat._id} value={cat._id}>{cat.name}</option>
                         )};
                     </select>
-                     </div>
+                    </div>
+                    </div>   
+                    <label id="idtest" htmlFor="idtest">Ingrese los talles:</label>
+                    <input type="text" name="talle" placeholder='34, 55, 33'  onChange={handleChange} value={formValues.talle} />     
+                    <label id="idtest" htmlFor="idtest">Colores disponibles:  <button className="insert-color" type="button" onClick={() => handleAddInput('color')} >Agregar mas colores </button></label>
 
-                    <input type="text"  placeholder="Inserte el precio" name="precio" onChange={handleChangeNumber} value={formValues.precio}/>
-
-                    <textarea name="descripcion" placeholder="Inserte el descripcion" onChange={handleChange} value={formValues.descripcion} />
-
-                    <label id="idtest" htmlFor="idtest">Talle: 34, 55, 66</label>
-                    <input type="text" name="talle" placeholder='34, 55, 33'  onChange={handleChange} value={formValues.talle} />
-                           
-                    <label id="idtest" htmlFor="idtest">Color:</label>
-                    <div className="flex-input">
+                    <div className="flex-producto-color">
                     { formValues.color.map((color, index) => {
                         let myButton
-                        if(index !== 0) { myButton =  <button className="agregarmas danger" type="button" onClick={() => handleDeleteInput(index, 'color')} ><i className="material-icons">clear</i></button> }
+                        if(index !== 0) { myButton =  <button className="delete-color" type="button" onClick={() => handleDeleteInput(index, 'color')} ><i className="material-icons">clear</i></button> }
                         return(
-                            <React.Fragment key={index}>
+                            <div key={index}>
                             <input type="color" key={index}  name="color" placeholder="Inserte el color"  onChange={handleChangeArray(index, 'color')} value={formValues.color[index]} />
                             {myButton}
-                            </React.Fragment>
+                            </div>
                         )
                     })}
-                    <button className="agregarmas" type="button" onClick={() => handleAddInput('color')} ><i className="material-icons">add</i> </button>
                     </div>
 
-                    <label id="idtest" htmlFor="idtest">Imagen:</label>        
-                    <div className="flex-input">
+                    <label id="idtest" htmlFor="idtest">Description</label>
+                    <textarea name="descripcion" placeholder="Inserte el descripcion" onChange={handleChange} value={formValues.descripcion} />
+                   
+                    <label id="idtest" htmlFor="idtest">Imagen:  <button className="agregarmas" type="button" onClick={() => handleAddInput('imagen')} > <i className="material-icons">add</i></button></label>        
+
                     { formValues.imagen.map((imagen, index) => {
                         let myButton
                         if(index !== 0) { myButton = <button className="agregarmas danger" type="button"onClick={() => handleDeleteInput(index, 'imagen')} ><i className="material-icons">clear</i></button> }
+                        console.log(imagen)
+                        const divStyle = {
+                            backgroundImage: `url('/img/${formValues.imagen[index]}')`  
+                            }
                         return(
-                            <React.Fragment key={index}>
-                                <img src={formValues.imagen[index]} />
+                            <div key={index}>
+                                <div className="imagenes-produ" style={divStyle} ></div>
                                 <input type="file" name="imagen" key={index} onChange={handleChangeArray(index, 'imagen')} />
                                 {myButton}
-                             </React.Fragment>
+                             </div>
                         )
                     })}
-                    <button className="agregarmas" type="button" onClick={() => handleAddInput('imagen')} > <i className="material-icons">add</i></button>
-                    </div>
 
                     {formValues.editar ? <input type="submit" value="Editar" /> : <input type="submit" value="Crear" />} 
             </form>

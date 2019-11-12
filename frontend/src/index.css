@@ -80,6 +80,7 @@ body {
 font-size: 14px;
   padding: 17px;
   border-bottom: 1px solid #5D26C1;
+  box-shadow: 0px 1px 4px inset rgba(255, 255,255, 0.30);
 }
 
 .header a {
@@ -429,29 +430,120 @@ margin: auto;
   padding: 20px;
 }
 
+.form-add {
+  padding: 25px 10px;
+}
+
+.form-add h2 {
+  font-size: 25px;
+  font-weight: lighter;
+  margin-bottom: 25px;
+  color:#533e3e;
+  letter-spacing: 1px;
+}
+
+input, textarea, checkbox, select {
+  font-family: poppins;
+  font-size: 12px;
+  color: #454545;
+}
+
 .form-add input {
   display: block;
   width: 98%;
-  padding: 10px 5px;
+  padding: 9px 5px;
   border: 1px solid #d9d9d9;
   margin-bottom: 10px;
 }
 
-.flex-input {
+.form-add label {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  border-left: 4px solid 
+  #5cbe77;
+  padding: 5px 3px;
+}
+
+
+.flex-producto {
   display: flex;
-  width: 90%;
   flex-wrap: wrap;
 }
 
-.flex-input input {
-  flex: 18% 1;
-  margin-right: 20px;
+.flex-producto div {
+  margin-right: 10px;
+  flex: 32% 0;
 }
 
-.flex-input select {
+.flex-producto-color {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-producto-color div {
+  margin-right: 0px;
+  flex: 3% 0;
+}
+
+.form-add input[type= "color"] {
+  padding: 0px;
+  width: 40px;
+   padding: 0px;
+  border-radius: 100px;
+  border: none;
+  overflow: hidden;
+  height: 40px;
+}
+
+.flex-producto-color {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-producto-color div {
+  margin-right: 0px;
+  flex: 6% 0;
+  display: flex;
+}
+
+
+
+.delete-color {
+  background: #b92525;
+  border: 1px solid #b92525;
+  color: white;
+  height: 18px;
+  padding: 0px;
+  border-radius: 2px;
+  width: 18px;
+  text-align: center;
+  position: relative;
+  left: -10px;
+  top: -4px;
+}
+
+.delete-color i {
+  font-size: 11px;
+}
+.insert-color {
+  background: white;
+  border: 1px solid #dcdcdc;
+  color: #454545;
+  font-family: poppins;
+  font-size: 11px;
+  position: relative;
+  top: -1px;
+  margin-left: 5px;
+}
+
+.form-add select {
   margin-bottom: 10px;
-  border: 1px solid #d9d9d9;
-  padding: 10px 25px;
+  border: 1px solid 
+  #d9d9d9;
+  padding: 8px 25px;
+  width: 100%;
 }
 
 .form-add textarea {
@@ -463,32 +555,7 @@ margin: auto;
 }
 
 
-.agregarmas {
-  background: #1d64ac;
-  border: 1px solid #1d64ac;
-  color: white;
-  height: auto;
-  padding: 0px 10px;
-  margin-bottom: 9px;
-  margin-top: -1px;
-  border-radius: 2px;
-  margin-right: 7px;
-}
 
-.danger {
-  background: red;
-  border: 1px solid red;
-}
-
-.form-add label {
-  font-size: 20px;
-  display: block;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #273371;
-  padding-bottom: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
 
 
 

@@ -11,7 +11,7 @@ const SidebarAdmin = () => {
             <div className="sidebar-cat">
                 <ul>
                 <li class="filtros-name"><i className="material-icons">filter_list</i>Menu</li>
-                    <li><Link to={"/adminhome"}>Home Admin</Link></li>
+                    <li><Link to={"/adminhome"}>Listado de productos</Link></li>
                     <li><Link to={"/agregar"}>Crear Producto</Link></li>
                     <li><Link to={"/createcategory"}>Crear Categoria</Link></li>
                 </ul>
