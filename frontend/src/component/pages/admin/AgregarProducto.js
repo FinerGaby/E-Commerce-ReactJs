@@ -36,6 +36,7 @@ const AgregarProducto = (props) => {
                           title,
                           imagen,
                           categoria,
+                          imagenName: [''],
                           editar: true
                         })
                       }
@@ -80,12 +81,10 @@ const AgregarProducto = (props) => {
 
     let handleChangeArray
     handleChangeArray = (id, estado) => e => {
-        //console.log(e.target.value)
-        // console.log(URL.createObjectURL(e.target.files[0]))
+        //console.log(URL.createObjectURL(e.target.files[0]))
        switch (estado) {
            case 'imagen': 
-                    console.log(e.target.files[0])
-                    formValues.imagenName[id] = e.target.files[0].name
+                    formValues.imagenName[id] = URL.createObjectURL(e.target.files[0])
                     formValues.imagen[id] = e.target.files[0];
                             setFormValues({ 
                                 ...formValues,
@@ -244,23 +243,35 @@ const AgregarProducto = (props) => {
                     <label id="idtest" htmlFor="idtest">Description</label>
                     <textarea name="descripcion" placeholder="Inserte el descripcion" onChange={handleChange} value={formValues.descripcion} />
                    
-                    <label id="idtest" htmlFor="idtest">Imagen:  <button className="agregarmas" type="button" onClick={() => handleAddInput('imagen')} > <i className="material-icons">add</i></button></label>        
+                    <label id="idtest" htmlFor="idtest">Imagen:  <button className="insert-color" type="button" onClick={() => handleAddInput('imagen')} > Agregar mas imagenes</button></label>        
 
+                    <div class="flex-producto">
                     { formValues.imagen.map((imagen, index) => {
                         let myButton
-                        if(index !== 0) { myButton = <button className="agregarmas danger" type="button"onClick={() => handleDeleteInput(index, 'imagen')} ><i className="material-icons">clear</i></button> }
+                        if(index !== 0) { myButton = <button className="delete-image" type="button"onClick={() => handleDeleteInput(index, 'imagen')} ><i className="material-icons">clear</i></button> }
                         console.log(imagen)
-                        const divStyle = {
-                            backgroundImage: `url('/img/${formValues.imagen[index]}')`  
+                        let imagenesFile
+                            let divStyle
+                            if(props.id) { 
+                            divStyle = {
+                            backgroundImage: `url('/img/${formValues.imagen[index]}')`  }
+                            } else {
+                                divStyle = {
+                            backgroundImage: `url('${formValues.imagenName[index]}')`  
                             }
+                            }
+                            
+                            imagenesFile = <div className="imagenes-produ" style={divStyle} ></div>
+                
                         return(
                             <div key={index}>
-                                <div className="imagenes-produ" style={divStyle} ></div>
+                                {imagenesFile}
                                 <input type="file" name="imagen" key={index} onChange={handleChangeArray(index, 'imagen')} />
                                 {myButton}
                              </div>
                         )
                     })}
+                    </div>
 
                     {formValues.editar ? <input type="submit" value="Editar" /> : <input type="submit" value="Crear" />} 
             </form>

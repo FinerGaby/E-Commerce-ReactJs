@@ -43,9 +43,20 @@ const ProductoId = (props) => {
                             <div className="info-producto">
                                 <div className="titulo-producto">{title}</div>
                                 <div className="descripcion-producto">{descripcion}</div>
+                                <h2>Colores disponibles:</h2>
                                 <div className="flex-box">
-                                { color.map(colores => <div key={colores} className="colores-producto">{colores}</div> ) }
+                                { color.map(colores => { 
+                                    let coloresStyle
+                                    coloresStyle = {
+                                        background: `${colores}`,
+                                        width: 30,
+                                        height: 30,
+                                        borderRadius: 50
+                                    }
+                                    return (
+                                    <div key={colores} style={coloresStyle}></div> )})}
                                 </div>
+                                <h2>Talles disponibles:</h2>
                                 <div className="flex-box">
                                 { talle.map(talles => <div key={talles} className="talles-producto">{talles}</div> ) }
                                 </div>
