@@ -34,7 +34,7 @@ const FetchProvider = (props) => {
     let handleSubmit
     handleSubmit = async (value) => {
       console.log(value)
-      var talle = value.talle.split(', '); // split string on comma space
+      var talle = value.talle.split(','); // split string on comma space
       console.log(talle)
       const { title, imagenName, precio, descripcion, color, _id, editar, categoria } = value;
       console.log(categoria)
@@ -46,21 +46,14 @@ const FetchProvider = (props) => {
       formdata.append('talle', JSON.stringify(talle));
       formdata.append('categoria', categoria);
       var arr = value.imagen;
+      console.log(value.imagen)
       for (var i = 0; i < arr.length; i++) {
         formdata.append('file', arr[i]);
       }  
    
       if(editar) {
-        const updateProducto = {
-          title,
-          imagenName,
-          precio,
-          descripcion,
-          color,
-          categoria,
-          talle
-        }
-        await axios.put(`http://localhost:8080/api/productos/${_id}`, updateProducto) 
+        console.log(...formdata)
+        await axios.put(`http://localhost:8080/api/productos/${_id}`, formdata) 
         fetchData();
 
       } else {

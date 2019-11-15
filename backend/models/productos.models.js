@@ -25,6 +25,9 @@ const ProductoSchema = new Schema({
     },
     imagen: {
         type: Array, required: true
+    },
+    archive: {
+        type: Array, required: true
     }
 });
 
