@@ -14,6 +14,8 @@ import CartProvider from './context/CartContext';
 import AdminHome from './component/pages/admin/AdminHome';
 import AgregarProducto from './component/pages/admin/AgregarProducto';
 import CategoriaAdd from './component/pages/admin/CategoriaAdd';
+import Registrar from './component/pages/registerlogin/Registrar';
+import Login from './component/pages/registerlogin/Login';
 
 
 
@@ -24,9 +26,13 @@ function App() {
     <CartProvider>
         <MainHeader />
         <Switch >
+
+        {/* Router Principal */}
         <Route exact path="/" component={ContainerMain}/>
-        <Route exact path="/tienda" component={Tienda}/>
         <Route exact path="/checking" component={CheckCart}/>
+
+        {/* Route Tienda / Producto / Filtrado por categoria del sidebar */}
+        <Route exact path="/tienda" component={Tienda}/>
         <Route path="/producto/:id" 
                 render={props => 
                 <ProductoId id={props.match.params.id} />} />
@@ -36,6 +42,12 @@ function App() {
                         <Tienda id={props.match.params.id} />} />
         />
 
+        {/* Router Registrar / Login */}
+        <Route exact path="/registrarse" component={Registrar} />
+        <Route exact path="/login" component={Login} />
+
+
+        {/* Route Administracion  */}
         <Route exact path="/adminhome" component={AdminHome}/>
         <Route exact path="/agregar" component={AgregarProducto}/>
         <Route exact path="/createcategory" component={CategoriaAdd}/>

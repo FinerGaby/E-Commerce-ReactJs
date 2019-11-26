@@ -14,8 +14,8 @@ function MainHeader() {
                     <li><Link to={"/contacto"}>Contacto</Link></li>
                 </ul>
                 <ul class="sign-out">
-                    <li>Login</li>
-                    <li>Register</li>
+                    <li><Link to={"/login"}>Login</Link></li>
+                    <li><Link to={"/registrarse"}>Registrarse</Link></li>
                 </ul>
             </nav>
         <Carrito />

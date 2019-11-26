@@ -768,3 +768,12 @@ color: white;
     border-bottom: 0;
   }
 }
+
+
+.container-fluid {
+  width: 100%;
+  min-height: 450px;
+  background: 
+  white;
+  margin: auto;
+}

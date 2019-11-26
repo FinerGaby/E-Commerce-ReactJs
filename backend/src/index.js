@@ -31,9 +31,15 @@ app.use(function(req, res, next) {
 
 
 // Routes de la la base
+// Api Productos
 app.use('/api/productos', require('../routes/productos.routes'))
 
+// Api Categorias
 app.use('/api/categorias', require('../routes/categoria.routes'))
+
+// Api Usuarios
+app.use('/api/registrarse', require('../routes/registrarse.routes'))
+
 
 
 

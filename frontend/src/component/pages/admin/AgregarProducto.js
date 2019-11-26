@@ -27,12 +27,13 @@ const AgregarProducto = (props) => {
                         const {data} = res
                         console.log(data)
                         const { title, imagen, precio, descripcion, color, talle, _id, categoria } = data
+                        const talleJoin = talle.join() // array to string
                         setFormValues({
                           _id,
                           precio,
                           descripcion, 
                           color, 
-                          talle, 
+                          talle: talleJoin, 
                           title,
                           imagen,
                           categoria,
