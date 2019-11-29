@@ -2,10 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require("body-parser");
+const passport = require('passport');
 
 const app = express();
 //database
 const { mongoose } = require('../database');
+require('../config/passport');
+
 
 //te transforma todo en json body parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +21,9 @@ app.set("port", process.env.PORT || 8080);
 app.use(morgan('dev'));
 //te transforma todo en json
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 //Habilitar CORS

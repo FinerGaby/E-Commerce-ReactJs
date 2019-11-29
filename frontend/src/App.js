@@ -11,6 +11,8 @@ import CheckCart from './component/pages/tienda/CheckCart';
 
 import FetchProvider from './context/FetchContext';
 import CartProvider from './context/CartContext';
+import AuthJwtProvider from './context/AuthJwtContext';
+
 import AdminHome from './component/pages/admin/AdminHome';
 import AgregarProducto from './component/pages/admin/AgregarProducto';
 import CategoriaAdd from './component/pages/admin/CategoriaAdd';
@@ -23,6 +25,7 @@ function App() {
   return (
     <Router>
     <FetchProvider>
+    <AuthJwtProvider>
     <CartProvider>
         <MainHeader />
         <Switch >
@@ -57,6 +60,7 @@ function App() {
 
         </Switch>
         </CartProvider>
+        </AuthJwtProvider>
         </FetchProvider>
     </Router>
   );
