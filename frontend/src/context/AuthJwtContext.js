@@ -12,8 +12,8 @@ const AuthJwtProvider = (props) => {
         name: '',
         email: ''
     });
-    const [noLog, setNoLog] = useState(false);
 
+    
     useEffect(() => {
         let fetching = async () => { fetchToken()  }   
      fetching();  
@@ -25,15 +25,19 @@ const AuthJwtProvider = (props) => {
         console.log(accessToken)
         if(accessToken == null) {
             //no tenes acceso al log
-            setNoLog(true)
+            setAuth(false)
         } else {
             //busco los datos del token del usuario
-            const res = await axios.get('http://localhost:8080/api/regitrarse/datosuser', {
-                params: {},
-                headers: { Authorization: `JWT ${accessToken}` },
+            const res = await axios.get('http://localhost:8080/api/registrarse/datosuser', {
+              headers: { Authorization: `JWT ${accessToken}` },
               });
-          
-            console.log(res)
+              console.log(res)
+            const { name, email, auth } = res.data;
+            setAuth(auth)
+            setDataLog({
+              name: name,
+              email: email
+            })
         }
     }
   
@@ -42,7 +46,9 @@ const AuthJwtProvider = (props) => {
 
       <AuthJwtContext.Provider
         value={{
-            noLog
+            auth,
+            dataLog,
+            fetchToken
         }}
       >
        {props.children}

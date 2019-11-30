@@ -13,8 +13,7 @@ passport.use('login', new LocalStrategy({
   passwordField: 'password',
   passReqToCallback: true
 }, async (req, name, password, done) => {
-  const userFind = await User.findOne({name: name});
-  console.log(password)
+  const userFind = await User.findOne({name: name, password: password});
   console.log(userFind)
   if(!userFind) {
     return done(null, false, {message: 'Error usuario no encontrado'})
@@ -33,17 +32,16 @@ const opts = {
 
 passport.use(
   'jwt',
-  new JWTstrategy(opts, (jwt_payload, done) => {
+  new JWTstrategy(opts, async (jwt_payload, done) => {
     console.log(jwt_payload)
-   /*  const userId = User.findById({id: jwt_payload.id})
-    console.log(userId)
+   const userId = await User.findById(jwt_payload.id)
     if (userId) {
       console.log('user found in db in passport');
       done(null, userId);
     } else {
       console.log('user not found in db');
       done(null, false);
-    } */
+    } 
   }),
 );
 

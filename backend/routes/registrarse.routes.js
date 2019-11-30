@@ -30,10 +30,11 @@ router.post('/login', (req, res, next) => {
     }
     //validacion de los mensajes
     if(info !== undefined) {
-       if(info.message === 'Error usuario no encontrado')
+       if(info.message === 'Error usuario no encontrado') {
           // usuario no encontrado
-          res.send(info.message)
-       else {
+          console.log(info.message)
+          res.send({message: 'Error usuario no encontrado'})
+       } else {
          //contraseña incorrecta
          res.send(info.message)
        }
@@ -47,7 +48,7 @@ router.post('/login', (req, res, next) => {
       res.status(200).send({
         auth: true,
         token,
-        message: 'usuario logeado',
+        log: 'usuario logeado',
       });
     });
   }
@@ -57,20 +58,20 @@ router.post('/login', (req, res, next) => {
 
 
 router.get('/datosuser', (req, res, next) => {
-  passport.authenticate('jwt', { session: false }, (err, users, info) => {
-    /* if(err) {
+  passport.authenticate('jwt', { session: false }, async (err, users, info) => {
+    console.log(users)
+    if(err) {
       console.log(err);
     }
     const usuarioFind = await Usuarios.findOne({name: users.name})
     res.status(200).send({
       auth: true,
-      first_name: usuarioFind.first_name,
+      name: usuarioFind.name,
       email: usuarioFind.email,
       message: 'user found in db',
-    }); */
+    }); 
   })(req, res, next);
 });
-
 
 
 

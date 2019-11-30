@@ -1,32 +1,43 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { AuthJwtConsumer } from '../../../context/AuthJwtContext';
+
 
 const Login = () => {
-   
+
     const [dataUser, setDataUser] = useState({
-        name: '',
-        password: ''
-    });
+            name: '',
+            password: ''
+        });
 
-    let handleChange
-    handleChange = (e) =>  {
-        setDataUser({
-            ...dataUser,
-            [e.target.name]: e.target.value
-        }) 
-    }
+    return (
+        <AuthJwtConsumer>
+            {(value) => { 
+            
+                const {fetchToken} = value;
 
-    let handleSubmit
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        const res = await axios.post(`http://localhost:8080/api/registrarse/login`, dataUser)
-        console.log(res)
-       console.log(res.data.message)
-       localStorage.setItem('JWT', res.data.token);
+                let handleChange
+                handleChange = (e) =>  {
+                    setDataUser({
+                        ...dataUser,
+                        [e.target.name]: e.target.value
+                    }) 
+                }
 
-    }
-
-
+                let handleSubmit
+                handleSubmit = async (e) => {
+                    e.preventDefault();
+                    const res = await axios.post(`http://localhost:8080/api/registrarse/login`, dataUser)
+                console.log(res)
+                const {message, token} = res.data;
+                if(message) {
+                    console.log(message)
+                } else {
+                console.log(res.data.message)
+                localStorage.setItem('JWT', token);
+                fetchToken();
+                }
+                }
 
     return (
         <div className="container-fluid">
@@ -39,6 +50,8 @@ const Login = () => {
                         <input type="submit" value="Crear" />
                  </form>
         </div>
+        )}}
+        </AuthJwtConsumer>
     )
 }
 
