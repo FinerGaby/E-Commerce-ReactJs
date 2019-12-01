@@ -6,7 +6,6 @@ export const AuthJwtConsumer = AuthJwtContext.Consumer;
 
 const AuthJwtProvider = (props) => {
 
-    const [token, setToken] = useState(null)
     const [auth, setAuth] = useState(false);
     const [dataLog, setDataLog] = useState({
         name: '',
@@ -28,7 +27,7 @@ const AuthJwtProvider = (props) => {
             setAuth(false)
         } else {
             //busco los datos del token del usuario
-            const res = await axios.get('http://localhost:8080/api/registrarse/datosuser', {
+            const res = await axios.get('http://localhost:8080/api/usuarios/datosuser', {
               headers: { Authorization: `JWT ${accessToken}` },
               });
               console.log(res)

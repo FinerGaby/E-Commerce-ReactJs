@@ -44,9 +44,9 @@ function MainHeader() {
                    
                 </ul>
             </nav>
+            <Carrito /> 
         { auth ? 
         <React.Fragment>
-        <Carrito /> 
         <div className="agregar">
                      <Link to={"/adminhome"}>
                      <i className="material-icons">

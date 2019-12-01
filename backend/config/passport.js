@@ -7,6 +7,33 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 const User = require('../models/usuarios.models')
 
 
+passport.use('registrarse', new LocalStrategy({
+  usernameField: 'name',
+  emailField: 'email',
+  passwordField: 'password',
+  passReqToCallback: true
+}, async (req, name, password, done) => {
+
+  const userFind = await User.findOne({name: name});
+  const userFindEmail = await User.findOne({email: req.body.email});
+
+  if(userFind) {
+    return done(null, false, {message: 'Error nombre de usuario usado'})
+  }
+  if(userFindEmail) {
+    return done(null, false, {message: 'Error email de usuario usado'})
+  }
+  var reqBodys = {
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
+  }
+  
+  return done(null, reqBodys);
+
+}))
+
+
 
 passport.use('login', new LocalStrategy({
   usernameField: 'name',

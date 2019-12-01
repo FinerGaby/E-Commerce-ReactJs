@@ -44,7 +44,11 @@ app.use('/api/productos', require('../routes/productos.routes'))
 app.use('/api/categorias', require('../routes/categoria.routes'))
 
 // Api Usuarios
-app.use('/api/registrarse', require('../routes/registrarse.routes'))
+app.use('/api/usuarios', require('../routes/usuarios.routes'))
+
+
+// Api Comentarios
+app.use('/api/comentarios', require('../routes/comentarios.routes'))
 
 
 

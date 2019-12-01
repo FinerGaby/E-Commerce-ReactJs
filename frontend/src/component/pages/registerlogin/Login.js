@@ -27,7 +27,7 @@ const Login = () => {
                 let handleSubmit
                 handleSubmit = async (e) => {
                     e.preventDefault();
-                    const res = await axios.post(`http://localhost:8080/api/registrarse/login`, dataUser)
+                const res = await axios.post(`http://localhost:8080/api/usuarios/login`, dataUser)
                 console.log(res)
                 const {message, token} = res.data;
                 if(message) {

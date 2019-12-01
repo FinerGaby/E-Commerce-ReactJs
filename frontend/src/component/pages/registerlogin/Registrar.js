@@ -20,7 +20,7 @@ const Registrar = () => {
     let handleSubmit
     handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await axios.post(`http://localhost:8080/api/registrarse/profile`, dataUser)
+        const res = await axios.post(`http://localhost:8080/api/usuarios/registrarse`, dataUser)
        console.log(res)
     }
 

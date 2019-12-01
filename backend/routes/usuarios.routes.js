@@ -11,16 +11,16 @@ router.get('/', async (req, res) => {
     res.json(getUsuarios)
 })
 
-router.post('/', async (req, res) => {
-    console.log(req.body)
-    var reqBodys = {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    }
-    const usuarioNew = new Usuarios(reqBodys)
+router.post('/registrarse', (req, res, next ) => {
+  passport.authenticate('registrarse', async (err, users, info) => {
+    if(info) {
+      res.send({message: info.message})
+    } else {
+    const usuarioNew = new Usuarios(users)
     await usuarioNew.save()
     res.json({ status: 'Usuario registrado'})
+    }
+  })(req, res, next)
 })
 
 router.post('/login', (req, res, next) => {
@@ -63,11 +63,12 @@ router.get('/datosuser', (req, res, next) => {
     if(err) {
       console.log(err);
     }
-    const usuarioFind = await Usuarios.findOne({name: users.name})
+    const usuarioFindOne = await Usuarios.findOne({name: users.name})
+    console.log(usuarioFindOne)
     res.status(200).send({
       auth: true,
-      name: usuarioFind.name,
-      email: usuarioFind.email,
+      name: usuarioFindOne.name,
+      email: usuarioFindOne.email,
       message: 'user found in db',
     }); 
   })(req, res, next);
