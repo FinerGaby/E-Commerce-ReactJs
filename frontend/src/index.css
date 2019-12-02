@@ -400,6 +400,57 @@ margin: auto;
   margin-bottom: 5px;
 }
 
+.section-comentarios {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-comment {
+  margin-top: 10px;
+  width: 47%;
+}
+
+.comentarios {
+  width: 50%;
+  padding: 10px;
+}
+
+.comentarios h2, .form-comment label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  padding: 10px 0px;
+  border-bottom: 3px solid #5f28c2;
+  margin-bottom: 10px;
+}
+.comment {
+  background: #f1f1f1;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.form-comment textarea {
+  border: 1px solid #d9d9d9;
+  padding: 10px;
+  height: 100px;
+  color: #454545;
+  border-radius: 2px;
+  width: 97%;
+}
+
+.form-comment input {
+  padding: 15px 35px;
+  width: 100%;
+  display: block;
+  border: none;
+  color: white;
+font-size: 13px;
+font-weight: bold;
+cursor: pointer;
+background: #5f28c2;
+margin: 10px 0px;
+}
+
 .imagenes-galeria-active {
   background-size: 51%;
   height: 300px;

@@ -51,6 +51,11 @@ const ProductoId = (props) => {
                     await axios.put(`http://localhost:8080/api/comentarios`, comentarios)
                     const res = await axios.get(`http://localhost:8080/api/productos/${props.id}`);
                     setDataId(res.data);
+                    setComentarios({
+                        id: props.id,
+                        usuario: dataLog.name,
+                        comment: ''
+                    })
                 }
 
                 if (!dataId) {
@@ -98,11 +103,15 @@ const ProductoId = (props) => {
                             </div>
                         </article>
                         <article className="section-comentarios">
-                         {archive.map(e => <div>{e.usuario} ------- {e.comment}</div>)}
+                        <div className="comentarios">
+                         <h2>Comentarios: {archive.length} </h2>
+                         {archive.map((e, index) => <div className="comment" key={index}>{e.usuario}<br/>{e.comment}</div>)}
+                         </div>
                          {auth ? 
-                            <form onSubmit={handleSubmit}>
-                        <textarea name="comment" placeholder="Inserte el comentario" onChange={handleChange} />
-                        <input type="submit" value="Crear" />
+                        <form className="form-comment" onSubmit={handleSubmit}>
+                        <label id="idtest" htmlFor="idtest">Deja tu comentario:</label>
+                        <textarea name="comment" placeholder="Inserte el comentario" onChange={handleChange} value={comentarios.comment} />
+                        <input type="submit" value="Enviar" />
                         </form>
                          : <div>Logeate para comentar</div> }
                         </article>

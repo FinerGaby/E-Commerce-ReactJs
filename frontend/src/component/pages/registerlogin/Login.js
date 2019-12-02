@@ -14,18 +14,18 @@ const Login = () => {
         <AuthJwtConsumer>
             {(value) => { 
             
-                const {fetchToken} = value;
+            const {fetchToken} = value;
 
-                let handleChange
-                handleChange = (e) =>  {
+            let handleChange
+            handleChange = (e) =>  {
                     setDataUser({
                         ...dataUser,
-                        [e.target.name]: e.target.value
-                    }) 
-                }
+                    [e.target.name]: e.target.value
+                }) 
+            }
 
-                let handleSubmit
-                handleSubmit = async (e) => {
+            let handleSubmit
+            handleSubmit = async (e) => {
                     e.preventDefault();
                 const res = await axios.post(`http://localhost:8080/api/usuarios/login`, dataUser)
                 console.log(res)
@@ -33,11 +33,11 @@ const Login = () => {
                 if(message) {
                     console.log(message)
                 } else {
-                console.log(res.data.message)
-                localStorage.setItem('JWT', token);
-                fetchToken();
+                    console.log(res.data.message)
+                    localStorage.setItem('JWT', token);
+                    fetchToken();
                 }
-                }
+            }
 
     return (
         <div className="container-fluid">
