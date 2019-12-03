@@ -3,6 +3,8 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require("body-parser");
 const passport = require('passport');
+const mercadopago = require ('mercadopago');
+
 
 const app = express();
 //database
@@ -49,6 +51,9 @@ app.use('/api/usuarios', require('../routes/usuarios.routes'))
 
 // Api Comentarios
 app.use('/api/comentarios', require('../routes/comentarios.routes'))
+
+
+app.use('/api/mercado', require('../routes/mercadopago.routes'))
 
 
 
