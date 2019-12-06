@@ -28,7 +28,7 @@ const Registrar = () => {
 
     return (
         <div className="container-fluid">
-        <form onSubmit={handleSubmit}>
+        <form className="form-registrar" onSubmit={handleSubmit}>
                         <label id="idtest" htmlFor="idtest">Nombre de usuario:</label>
                         <input type="text" placeholder="Nombre de usuario" name="name" onChange={handleChange} /><br />
                         <label id="idtest" htmlFor="idtest">Email:</label>

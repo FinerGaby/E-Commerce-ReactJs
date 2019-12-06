@@ -24,8 +24,8 @@ passport.use('registrarse', new LocalStrategy({
     return done(null, false, {message: 'Error email de usuario usado'})
   }
   var reqBodys = {
-    name: req.body.name,
-    email: req.body.email,
+    name: req.body.name.toUpperCase(),
+    email: req.body.email.toUpperCase(),
     password: req.body.password
   }
   

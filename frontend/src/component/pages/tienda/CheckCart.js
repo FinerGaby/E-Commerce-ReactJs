@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { CartConsumer } from '../../../context/CartContext';
 
 
@@ -10,16 +11,28 @@ const CheckCart = () => {
            //accedo a los datos del context
            const { cart, handleCartDelete} = value;
 
+            let handleSubmit
+           handleSubmit = async () => {
+               const arrayObj = cart.map((e, i) => {
+                            return { "name": e.title, "unit_price": e.precio, "quantity": 1}
+                        })
+                                
+                const res = await axios.post(`http://localhost:8080/api/mercado/pagar`, arrayObj)
+                const { sandbox_init_point } = res.data
+                window.open(`${sandbox_init_point}`, '_blank');
+           }
+
+           const precioTotal = cart.reduce((prev, cur) => {
+                             return prev + cur.precio;
+                            }, 0);  
+
            let MyComponent
            if(cart.length === 0) {
             MyComponent = <span>no tienes item en el carrito, inserte uno</span>
            }  else {
                // Se supone que todo lo que esta en el map tiene que estar en un form y los datos que llegan en los values
                // para luego mandarlos a las rutas que vaya creando con express y req.body
-               // crear tables??? o div
-            const precioTotal = cart.reduce((prev, cur) => {
-                             return prev + cur.precio;
-                            }, 0);            
+               // crear tables??? o div          
             MyComponent =
             <React.Fragment>
             <table>
@@ -40,7 +53,7 @@ const CheckCart = () => {
                     <td data-label="Nombre">{e.title}</td>
                     <td data-label="Fecha">04/01/2016</td>
                     <td data-label="Precio">${e.precio}</td>
-                    <td data-label="Cantidad">03/01/2016 - 03/31/2016</td>
+                    <td data-label="Cantidad">1</td>
                     <td data-label="Quitar"><span onClick={() => handleCartDelete(e._id)}><i className="material-icons">delete</i></span></td>
                     </tr>
                 )}
@@ -50,7 +63,7 @@ const CheckCart = () => {
                 </tr>
                 </tbody>
                 </table>
-                <div>Boton pagar</div>
+                <div className="boton-pagar" onClick={() => handleSubmit()}>Boton pagar</div>
              </React.Fragment>
            }
 
